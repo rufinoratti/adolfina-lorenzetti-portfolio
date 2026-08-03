@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Warm monochrome palette + a single vermilion accent */
+  --color-paper: #faf9f6;
+  --color-surface: #ffffff;
+  --color-subtle: #f3f1eb;
+  --color-ink: #1c1b18;
+  --color-muted: #77726a;
+  --color-faint: #a6a09a;
+  --color-line: #e7e3db;
+  --color-line-strong: #d8d3c9;
+  --color-accent: #d8502f;
+  --color-accent-soft: #f7e9e3;
+  --color-accent-deep: #b43d22;
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  /* Keep readouts / small metadata touchable but aesthetically quiet */
+  @media (hover: hover) and (pointer: fine) {
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--color-paper);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-line);
+      border-radius: 999px;
+      border: 2px solid var(--color-paper);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-line-strong);
+    }
+  }
+
+  /* Visible, consistent focus ring */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .u-hairline {
+    border-top: 1px solid var(--color-line);
+  }
+  .u-uppercase-mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .u-soft-grain {
+    background-image: radial-gradient(
+      circle at 18% 12%,
+      rgba(216, 80, 47, 0.028),
+      transparent 46%
+    );
+  }
+  .u-hide-scrollbar {
+    scrollbar-width: none;
+  }
+  .u-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Elegant loader / ambient keyframes */
+@keyframes pulse-line {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  55% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* Respect reduced motion at the CSS level */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
