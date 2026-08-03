@@ -9,7 +9,9 @@ import {
 } from "motion/react";
 
 const mediaQuery = () =>
-  typeof window === "undefined" ? false : window.matchMedia("(pointer: fine)");
+  typeof window === "undefined"
+    ? null
+    : window.matchMedia("(pointer: fine)");
 
 const subscribeFinePointer = (onStoreChange: () => void) => {
   const mq = mediaQuery();
