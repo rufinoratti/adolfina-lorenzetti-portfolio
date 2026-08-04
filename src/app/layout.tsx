@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import { Cormorant_Garamond, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Navbar } from "@/components/layout/navbar";
@@ -8,20 +8,21 @@ import { Cursor } from "@/components/layout/cursor";
 import { Preloader } from "@/components/layout/preloader";
 import { site } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -32,12 +33,12 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "diseño gráfico",
-    "branding",
-    "diseño editorial",
-    "packaging",
-    "ilustración",
-    "identidad visual",
+    "interiorismo",
+    "diseño de interiores",
+    "espacios residenciales",
+    "espacios comerciales",
+    "remodelaciones",
+    "decoración",
     "Adolfina Lorenzetti",
     "Buenos Aires",
   ],
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf9f6",
+  themeColor: "#f6f3ec",
   width: "device-width",
   initialScale: 1,
 };
@@ -90,7 +91,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
-  jobTitle: "Diseñadora gráfica",
+  jobTitle: "Interior Designer",
   description: site.description,
   email: site.email,
   url: site.url,
@@ -101,16 +102,17 @@ const personJsonLd = {
   },
   sameAs: [
     site.social.instagram,
-    site.social.behance,
+    site.social.pinterest,
     site.social.linkedin,
   ],
   knowsAbout: [
-    "Branding",
-    "Identidad visual",
-    "Diseño editorial",
-    "Packaging",
-    "Ilustración",
-    "Diseño web",
+    "Diseño residencial",
+    "Diseño comercial",
+    "Remodelaciones",
+    "Espacios corporativos",
+    "Iluminación",
+    "Selección de mobiliario",
+    "Renderización 3D",
   ],
 };
 
@@ -122,8 +124,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable}`}
+      className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

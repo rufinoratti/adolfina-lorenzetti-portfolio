@@ -26,7 +26,7 @@ export function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const delta = latest - previous.current;
-    setHidden(latest > 160 && delta > 0 && !open);
+    setHidden(latest > 220 && delta > 0 && !open);
     setScrolled(latest > 24);
     previous.current = latest;
   });
@@ -40,36 +40,39 @@ export function Navbar() {
 
   const linkClass = (href: string) =>
     cn(
-      "relative text-sm text-ink/80 transition-colors duration-300 hover:text-ink",
-      href === pathname && "text-ink",
+      "relative text-sm text-ink/75 transition-colors duration-300 hover:text-ink after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
+      href === pathname && "text-ink after:w-full",
     );
 
   return (
     <>
       <motion.header
-        initial={{ y: reduce ? 0 : -72 }}
-        animate={{ y: hidden ? -96 : 0 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ y: reduce ? 0 : -80 }}
+        animate={{ y: hidden ? -110 : 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
           scrolled
-            ? "border-b border-line/80 bg-paper/75 backdrop-blur-xl backdrop-saturate-150"
+            ? "border-b border-line/80 bg-paper/70 backdrop-blur-xl backdrop-saturate-150"
             : "border-b border-transparent bg-transparent",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-12">
+        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:h-[72px] lg:px-12">
           <Link
             href="/"
             aria-label={`${site.name}, inicio`}
-            className="group flex items-baseline gap-1.5"
+            className="group flex items-baseline gap-2"
           >
-            <span className="text-[17px] font-semibold tracking-tight text-ink">
+            <span className="font-serif text-[21px] font-medium tracking-tight text-ink">
               {site.name}
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125" />
           </Link>
 
-          <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
+          <nav
+            aria-label="Principal"
+            className="hidden items-center gap-9 md:flex"
+          >
             {site.nav.map((item) => (
               <Link key={item.href} href={item.href} className={linkClass(item.href)}>
                 {item.label}
@@ -80,7 +83,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <span className="hidden md:block">
               <Button href="/#contacto" variant="primary" size="sm">
-                Hablemos
+                Contacto
               </Button>
             </span>
             <button
@@ -88,7 +91,7 @@ export function Navbar() {
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={open}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors hover:bg-subtle md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-paper/70 text-ink backdrop-blur-md transition-colors hover:bg-subtle md:hidden"
             >
               {open ? <X size={18} weight="bold" /> : <List size={18} weight="bold" />}
             </button>
@@ -102,21 +105,21 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col bg-paper px-5 pb-10 pt-28 md:hidden"
+            transition={{ duration: 0.35 }}
+            className="fixed inset-0 z-40 flex flex-col bg-paper/80 px-5 pb-10 pt-28 backdrop-blur-2xl md:hidden"
           >
-            <nav aria-label="Menú móvil" className="flex flex-col gap-2">
+            <nav aria-label="Menú móvil" className="flex flex-col gap-1">
               {site.nav.map((item, i) => (
                 <motion.div
                   key={item.href}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
+                  initial={reduce ? false : { opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06 + i * 0.05, duration: 0.4 }}
+                  transition={{ delay: 0.08 + i * 0.06, duration: 0.5 }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block border-b border-line py-5 text-3xl font-medium tracking-tight text-ink"
+                    className="block border-b border-line py-5 font-serif text-4xl font-light tracking-tight text-ink"
                   >
                     {item.label}
                   </Link>
@@ -126,7 +129,7 @@ export function Navbar() {
             <motion.div
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.35, duration: 0.4 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
               className="mt-auto flex flex-col gap-6"
             >
               <a
@@ -138,7 +141,7 @@ export function Navbar() {
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {[
                   ["Instagram", site.social.instagram],
-                  ["Behance", site.social.behance],
+                  ["Pinterest", site.social.pinterest],
                   ["LinkedIn", site.social.linkedin],
                 ].map(([label, href]) => (
                   <a
@@ -146,7 +149,7 @@ export function Navbar() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-ink/80 transition-colors hover:text-accent"
+                    className="text-sm text-ink/80 transition-colors hover:text-accent-deep"
                   >
                     {label}
                   </a>

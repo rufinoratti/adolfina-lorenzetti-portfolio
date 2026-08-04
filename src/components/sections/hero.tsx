@@ -9,111 +9,116 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { Button } from "@/components/ui/button";
+import { ArchTag, Coords } from "@/components/ui/arch";
+import { site } from "@/lib/site";
+
+const IMG = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80";
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 0.96]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -30]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.08]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 80]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, reduce ? 1 : 0]);
 
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100dvh] items-center overflow-hidden"
+      className="relative flex min-h-[100dvh] items-end overflow-hidden"
     >
-      <div
+      {/* Fotografía de ambiente a pantalla completa */}
+      <motion.div
+        style={{ scale: imageScale, y: imageY }}
+        className="absolute inset-0"
+      >
+        <Image
+          src={IMG}
+          alt="Ambiente living contemporáneo con luz natural en madera y piedra"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/30 to-ink/70"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/45 to-transparent"
+        />
+      </motion.div>
+
+      {/* Marco técnico decorativo */}
+      <span
         aria-hidden="true"
-        className="u-soft-grain pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute left-5 top-24 h-10 w-10 border-l border-t border-paper/30 lg:left-12 lg:top-28"
       />
-      <div
+      <span
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-accent/[0.05] blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-52 -left-40 h-[32rem] w-[32rem] rounded-full bg-ink/[0.03] blur-3xl"
+        className="pointer-events-none absolute right-5 top-24 h-10 w-10 border-r border-t border-paper/30 lg:right-12 lg:top-28"
       />
 
       <motion.div
-        style={{ y: contentY }}
-        className="relative mx-auto grid w-full max-w-[1400px] gap-16 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-12 lg:items-center lg:pb-0 lg:pt-24"
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative mx-auto flex w-full max-w-[1500px] flex-col gap-10 px-5 pb-14 pt-40 sm:px-8 lg:px-12 lg:pb-20"
       >
-        <div className="lg:col-span-8">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
+        <div className="flex flex-col gap-7 lg:max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="font-mono text-xs uppercase tracking-[0.22em] text-accent"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-paper/80"
           >
-            Diseñadora gráfica
-          </motion.p>
+            <ArchTag className="text-paper/80">Residential</ArchTag>
+            <Coords value={site.coordinates} className="text-paper/50" />
+          </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 max-w-5xl text-balance text-6xl font-semibold leading-[0.95] tracking-tighter text-ink sm:text-7xl lg:text-8xl"
+            transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            className="text-balance font-serif text-5xl font-light leading-[1.02] tracking-tight text-paper sm:text-6xl lg:text-7xl"
           >
             Adolfina
-            <br />
-            Lorenzetti
+            <span className="block italic text-paper/90">Lorenzetti</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 max-w-xl text-lg leading-relaxed text-muted"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-xl text-balance text-pretty text-lg leading-relaxed text-paper/85"
           >
-            Diseño identidades, publicaciones y packaging para marcas que
-            quieren ser{" "}
-            <em className="font-serif italic text-ink">recordadas</em>.
+            {site.tagline} Interiores que equilibran luz, materialidad y
+            funcionalidad para cada forma de habitar.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.34, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center"
           >
-            <Button href="/portfolio" size="lg" withArrow>
+            <Button href="/portfolio" size="lg" withArrow variant="paper">
               Ver proyectos
             </Button>
-            <Button href="/#contacto" size="lg" variant="secondary">
-              Hablemos
+            <Button href="/#contacto" size="lg" variant="ghostLight">
+              Contacto
             </Button>
           </motion.div>
         </div>
 
-        <motion.div
-          style={{ y: imageY, scale: imageScale }}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative hidden lg:col-span-4 lg:block"
-        >
-          <div className="relative overflow-hidden rounded-2xl border border-line">
-            <div className="aspect-[3/4]">
-              <Image
-                src="https://picsum.photos/seed/portrait-estudio/900/1200"
-                alt="Rincón de trabajo del estudio: tipografías, papeles y herramientas"
-                fill
-                sizes="(min-width: 1024px) 30vw, 0vw"
-                loading="eager"
-                className="object-cover saturate-[0.88] contrast-[1.02]"
-              />
-            </div>
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent"
-            />
-          </div>
-        </motion.div>
+        <div className="hidden items-center justify-between border-t border-paper/20 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/55 md:flex">
+          <span>{site.location}</span>
+          <span>Interior Designer</span>
+          <span>{site.social.instagram.replace("https://instagram.com/", "@")}</span>
+        </div>
       </motion.div>
     </section>
   );

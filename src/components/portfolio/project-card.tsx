@@ -1,72 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/dynamic-icon";
+import { CornerFrame, ArchTag } from "@/components/ui/arch";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types/project";
 
 const ratios = {
   portrait: "aspect-[4/5]",
   landscape: "aspect-[4/3]",
-  square: "aspect-square",
   wide: "aspect-[16/10]",
 } as const;
 
 export function ProjectCard({
   project,
   ratio = "portrait",
-  mobileImage = true,
+  showExplore = true,
 }: {
   project: Project;
   ratio?: keyof typeof ratios;
-  mobileImage?: boolean;
+  showExplore?: boolean;
 }) {
   return (
     <Link
       href={`/portfolio/${project.slug}`}
       className="group block"
-      aria-label={`Ver proyecto ${project.title}`}
+      aria-label={`Explorar proyecto ${project.title}`}
     >
-      <div
-        className={cn(
-          "relative overflow-hidden rounded-2xl border border-line bg-subtle",
-          ratios[ratio],
-        )}
-      >
+      <div className={cn("relative overflow-hidden rounded-[2px] bg-subtle", ratios[ratio])}>
         <Image
-          src={`https://picsum.photos/seed/${project.coverSeed}/1200/${ratio === "landscape" || ratio === "wide" ? "900" : "1500"}`}
-          alt={project.title}
+          src={project.cover}
+          alt={`${project.title} — ${project.tagline}`}
           fill
-          sizes="(min-width: 1024px) 40vw, 90vw"
-          className={cn(
-            "object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]",
-            "saturate-[0.92] contrast-[1.02]",
-          )}
+          sizes="(min-width: 1024px) 45vw, 92vw"
+          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.045]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        {mobileImage && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="translate-y-3 rounded-full bg-paper/90 px-5 py-2.5 text-sm font-medium text-ink opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-              Ver proyecto
-            </span>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+
+        {showExplore && (
+          <span className="absolute bottom-5 left-5 translate-y-3 rounded-full border border-paper/40 bg-paper/85 px-5 py-2.5 text-sm font-medium text-ink opacity-0 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-hover:opacity-100">
+            Explorar proyecto
+          </span>
         )}
+        <CornerFrame className="opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
 
-      <div className="mt-5 flex items-start justify-between gap-4">
+      <div className="mt-6 flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold tracking-tight text-ink">
+          <h3 className="font-serif text-2xl font-medium tracking-tight text-ink transition-colors duration-300 group-hover:text-accent-deep sm:text-[1.7rem]">
             {project.title}
           </h3>
-          <p className="mt-0.5 font-mono text-xs uppercase tracking-wide text-faint">
-            {project.category}
-          </p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <ArchTag>{project.type}</ArchTag>
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
+              {project.location} · {project.year}
+            </span>
+          </div>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-muted">{project.year}</span>
-          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-ink transition-all duration-300 group-hover:bg-ink group-hover:text-paper">
-            <Icon name="ArrowUpRight" size={14} weight="bold" />
-          </span>
-        </div>
+        <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-all duration-500 group-hover:border-accent/50 group-hover:bg-ink group-hover:text-paper">
+          <Icon
+            name="ArrowUpRight"
+            size={15}
+            weight="bold"
+            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </span>
       </div>
     </Link>
   );

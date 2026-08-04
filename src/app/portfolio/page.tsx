@@ -6,25 +6,23 @@ import { projects } from "@/lib/data/projects";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Proyectos",
   description:
-    "Selección de proyectos de branding, diseño editorial, packaging, diseño web e ilustración de Adolfina Lorenzetti.",
+    "Selección de proyectos de interiorismo de Adolfina Lorenzetti: residenciales, comerciales, remodelaciones y espacios corporativos.",
 };
 
 export default function PortfolioPage() {
   return (
-    <div className="pt-28 lg:pt-36">
+    <div className="pt-32 lg:pt-40">
       <Container>
         <Reveal variant="fade-up">
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
-            Portfolio
-          </p>
-          <h1 className="mt-6 max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-tighter text-ink sm:text-6xl lg:text-7xl">
-            Proyectos seleccionados
+          <p className="u-uppercase-mono text-accent">Proyectos</p>
+          <h1 className="mt-6 max-w-4xl text-balance font-serif text-5xl font-light leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+            Interiores seleccionados
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-            Un recorrido por identidades, publicaciones y objetos que ayudé a
-            construir. Cada trabajo responde a un contexto y a una pregunta.
+          <p className="mt-6 max-w-xl text-pretty leading-relaxed text-muted">
+            Una selección de casas, locales y espacios de trabajo. Cada proyecto
+            es un diálogo entre arquitectura, luz y quienes lo habitan.
           </p>
         </Reveal>
 

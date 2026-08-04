@@ -8,19 +8,17 @@ export default function NotFound() {
       <Container>
         <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
           <Reveal variant="fade-up">
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">
-              Error 404
-            </p>
+            <p className="u-uppercase-mono text-accent">Error 404</p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="mt-6 text-balance text-6xl font-semibold leading-[0.95] tracking-tighter text-ink sm:text-7xl">
-              Esta página no existe.
+            <h1 className="mt-6 text-balance font-serif text-6xl font-light leading-[1] tracking-tight text-ink sm:text-7xl">
+              Este espacio no existe.
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-muted">
-              Parece que el enlace cambió o la página se movió. Volvé al inicio
-              o recorré el portfolio.
+              Parece que la página se movió o el enlace cambió. Volvé al inicio
+              o recorré los proyectos.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -29,7 +27,7 @@ export default function NotFound() {
                 Volver al inicio
               </Button>
               <Button href="/portfolio" variant="secondary">
-                Ver portfolio
+                Ver proyectos
               </Button>
             </div>
           </Reveal>

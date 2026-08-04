@@ -3,18 +3,28 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Check, PaperPlaneTilt, CircleNotch } from "@phosphor-icons/react";
+import { cn } from "@/lib/utils";
 
-const initial = { name: "", email: "", message: "" };
+const initial = { name: "", email: "", project: "", message: "" };
+
+const fieldClass =
+  "w-full rounded-[2px] border border-line bg-paper px-4 text-base text-ink transition-colors placeholder:text-faint focus:border-ink/40 focus:outline-none focus:ring-1 focus:ring-accent/30";
 
 export function ContactForm() {
   const reduce = useReducedMotion();
   const [values, setValues] = useState(initial);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
 
   function handleChange(
     field: keyof typeof initial,
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) {
     setValues((v) => ({ ...v, [field]: event.target.value }));
     setErrors((e) => ({ ...e, [field]: undefined }));
@@ -27,7 +37,7 @@ export function ContactForm() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
       nextErrors.email = "Necesito un email válido para responder.";
     if (values.message.trim().length < 10)
-      nextErrors.message = "Contame un poco más de tu idea.";
+      nextErrors.message = "Contame un poco más sobre tu espacio.";
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
@@ -36,26 +46,26 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-line bg-surface p-6 sm:p-10">
+    <div className="rounded-[2px] border border-line bg-surface p-6 sm:p-10">
       <AnimatePresence mode="wait">
         {status === "sent" ? (
           <motion.div
             key="sent"
-            initial={reduce ? false : { opacity: 0, y: 12 }}
+            initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex min-h-[24rem] flex-col items-center justify-center gap-5 text-center"
+            className="flex min-h-[26rem] flex-col items-center justify-center gap-5 text-center"
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-deep">
-              <Check size={26} weight="bold" />
+              <Check size={24} weight="light" />
             </span>
             <div>
-              <h3 className="text-2xl font-semibold tracking-tight text-ink">
+              <h3 className="font-serif text-3xl font-light tracking-tight text-ink">
                 Gracias, {values.name.split(" ")[0]}.
               </h3>
-              <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted">
+              <p className="mx-auto mt-3 max-w-sm text-pretty text-sm leading-relaxed text-muted">
                 Recibí tu mensaje. Te escribo a {values.email} en las próximas
-                horas hábiles.
+                horas hábiles para seguir conversando sobre tu espacio.
               </p>
             </div>
             <button
@@ -64,7 +74,7 @@ export function ContactForm() {
                 setValues(initial);
                 setStatus("idle");
               }}
-              className="text-sm font-medium text-ink underline-offset-4 hover:text-accent hover:underline"
+              className="text-sm font-medium text-ink underline-offset-4 hover:text-accent-deep hover:underline"
             >
               Enviar otro mensaje
             </button>
@@ -82,10 +92,7 @@ export function ContactForm() {
           >
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="nombre"
-                  className="text-sm font-medium text-ink"
-                >
+                <label htmlFor="nombre" className="text-sm font-medium text-ink">
                   Nombre
                 </label>
                 <input
@@ -98,7 +105,7 @@ export function ContactForm() {
                   placeholder="Cómo te llamás"
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "error-nombre" : undefined}
-                  className="h-12 rounded-xl border border-line bg-paper px-4 text-base text-ink transition-colors placeholder:text-faint focus:border-ink/40 focus:outline-none"
+                  className={cn(fieldClass, "h-12")}
                 />
                 {errors.name && (
                   <p id="error-nombre" className="text-xs text-accent-deep">
@@ -121,7 +128,7 @@ export function ContactForm() {
                   placeholder="tucorreo@estudio.com"
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? "error-email" : undefined}
-                  className="h-12 rounded-xl border border-line bg-paper px-4 text-base text-ink transition-colors placeholder:text-faint focus:border-ink/40 focus:outline-none"
+                  className={cn(fieldClass, "h-12")}
                 />
                 {errors.email && (
                   <p id="error-email" className="text-xs text-accent-deep">
@@ -132,8 +139,29 @@ export function ContactForm() {
             </div>
 
             <div className="flex flex-col gap-2">
+              <label htmlFor="proyecto" className="text-sm font-medium text-ink">
+                Tipo de proyecto
+              </label>
+              <select
+                id="proyecto"
+                name="proyecto"
+                value={values.project}
+                onChange={(e) => handleChange("project", e)}
+                className={cn(fieldClass, "h-12 appearance-none")}
+              >
+                <option value="">Seleccioná una opción</option>
+                <option>Diseño residencial</option>
+                <option>Diseño comercial</option>
+                <option>Remodelación</option>
+                <option>Espacio corporativo</option>
+                <option>Asesoramiento decorativo</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-2">
               <label htmlFor="mensaje" className="text-sm font-medium text-ink">
-                Proyecto
+                Describí tu espacio
               </label>
               <textarea
                 id="mensaje"
@@ -141,10 +169,10 @@ export function ContactForm() {
                 rows={5}
                 value={values.message}
                 onChange={(e) => handleChange("message", e)}
-                placeholder="Contame sobre tu proyecto: qué necesitás, para cuándo y cómo te imaginás el resultado."
+                placeholder="Contame sobre tu proyecto: qué tipo de espacio es, qué necesitás y cómo te lo imaginás."
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? "error-mensaje" : undefined}
-                className="resize-none rounded-xl border border-line bg-paper px-4 py-3 text-base leading-relaxed text-ink transition-colors placeholder:text-faint focus:border-ink/40 focus:outline-none"
+                className={cn(fieldClass, "resize-none py-3 leading-relaxed")}
               />
               {errors.message && (
                 <p id="error-mensaje" className="text-xs text-accent-deep">
@@ -156,11 +184,11 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink text-base font-medium text-paper transition-all duration-300 hover:bg-[#2c2a26] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:px-8"
+              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink text-base font-medium text-paper transition-all duration-300 hover:bg-ink-strong active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:px-8"
             >
               {status === "sending" ? (
                 <>
-                  <CircleNotch size={18} weight="bold" className="animate-spin" />
+                  <CircleNotch size={18} weight="light" className="animate-spin" />
                   Enviando
                 </>
               ) : (
@@ -168,7 +196,7 @@ export function ContactForm() {
                   Enviar mensaje
                   <PaperPlaneTilt
                     size={18}
-                    weight="bold"
+                    weight="light"
                     className="text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </>

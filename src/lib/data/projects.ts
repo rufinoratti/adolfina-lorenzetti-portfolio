@@ -1,551 +1,784 @@
 import type { Project } from "@/types/project";
 
+const img = (id: string, w: number) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+
 export const projects: Project[] = [
   {
-    slug: "marea-estudio",
-    title: "Marea Estudio",
-    client: "Marea Estudio",
-    category: "Branding",
-    year: 2024,
-    coverSeed: "marea-branding-coast",
-    accent: "#d8502f",
-    tagline: "Identidad para un estudio de cerámica frente al mar.",
+    slug: "casa-vento",
+    title: "Casa Vento",
+    type: "Residencial",
+    location: "Palermo Soho, Buenos Aires",
+    year: 2025,
+    area: "320 m²",
+    client: "Familia privada",
+    cover: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Una casa que se abre a la luz y al jardín.",
     summary:
-      "Sistema de identidad completo para un taller de cerámica y objetos de la costa, construido alrededor del ritmo de las mareas.",
+      "Remodelación integral de una casa de los años cuarenta: planta abierta, materiales cálidos y una relación continua con el exterior.",
     description: [
-      "Marea es un estudio de cerámica artesanal en Mar del Plata que buscaba salir de la estética de «arte para la casa» y posicionarse como un taller con voz propia. Trabajamos juntos desde el nombre hasta la papelería.",
-      "La identidad parte de una idea simple: el borde entre la arena y el agua. Ese límite aparece como línea continua en el logotipo, como textura en el empaque y como sistema de color que cambia con cada colección.",
-      "El resultado es una marca que se siente hecha a mano y, a la vez, precisa. Una que puede vivir en un sello de barro y en una pantalla.",
+      "Casa Vento era una casa clásica de barrio con habitaciones cerradas y escasa conexión con el jardín. La intervención reordenó el programa alrededor de un eje de luz y de verde.",
+      "La planta baja se abrió por completo: cocina, comedor y estar convergen en un gran espacio que desemboca en el patio. La luz del norte entra hasta el fondo de la casa.",
+      "Trabajamos con materiales honestos y atemporales: madera de roble claro, microcemento, piedra caliza y lana. Cada textura responde a una decisión, no a una tendencia.",
     ],
     objectives: [
-      "Construir una identidad que comunicara el origen artesanal del estudio sin caer en lo folclórico.",
-      "Crear un sistema flexible que conviviera con la imperfección de la cerámica.",
-      "Desarrollar una línea de empaque y papelería que se sintiera tan cuidada como los objetos.",
+      "Abrir los espacios sin perder la intimidad de las habitaciones.",
+      "Crear una cocina generosa que funcionara como centro de reunión de la familia.",
+      "Ordenar la circulación y ganar metros a patios interiores que no se usaban.",
     ],
-    process: [
+    concept: [
+      "La casa se leyó como un jardín que se atraviesa. Los ambientes se organizan en galerías que enmarcan el verde, y cada paso por la casa revela un recorte distinto del exterior.",
+      "La idea rectora fue la «casa-materia»: superficies táctiles, luz filtrada y una paleta neutra que deja hablar a las plantas y a las vistas.",
+    ],
+    layout: [
       {
-        name: "Descubrimiento",
+        name: "Planta baja",
         detail:
-          "Tres semanas de inmersión: visitas al taller, entrevistas con la fundadora y muestreo de piezas, esmaltes y texturas que hoy son parte del vocabulario visual.",
+          "Estar, comedor y cocina integrados; baño de visitas y hall de acceso que distribuye hacia la galería.",
       },
       {
-        name: "Exploración",
+        name: "Planta alta",
         detail:
-          "Más de cuarenta direcciones de marca dibujadas a mano. Filtramos hasta cuatro caminos que probamos en piezas reales antes de elegir.",
+          "Tres dormitorios, dos en suite, y un estar de trabajo que aprovecha la doble altura del fondo.",
       },
       {
-        name: "Sistema",
+        name: "Exterior",
         detail:
-          "Definición del logotipo, paleta, tipografía, fotografía y un manual de uso que permite crecer sin perder consistencia.",
+          "Patio semicubierto con quincho, pileta lineal y una franja de vegetación que amortigua la calle.",
       },
     ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/marea-branding-1/1600/1100",
-        alt: "Papelería de Marea Estudio sobre superficie de cerámica",
-        seed: "marea-branding-1",
-      },
-      {
-        src: "https://picsum.photos/seed/marea-branding-2/1200/1600",
-        alt: "Tarjetas de presentación de Marea Estudio",
-        seed: "marea-branding-2",
-      },
-      {
-        src: "https://picsum.photos/seed/marea-branding-3/1600/900",
-        alt: "Marca de agua estampada en piezas de cerámica",
-        seed: "marea-branding-3",
-      },
-      {
-        src: "https://picsum.photos/seed/marea-branding-4/1600/1200",
-        alt: "Manual de marca abierto sobre un banco de trabajo",
-        seed: "marea-branding-4",
-      },
+    materials: [
+      "Roble europeo cepillado",
+      "Microcemento gris piedra",
+      "Piedra caliza Mataró",
+      "Lino y lana natural",
+      "Hierro en esmalte negro mate",
+      "Cristales de seguridad al piso",
     ],
     palette: [
-      { name: "Arena", hex: "#efe9de" },
-      { name: "Esmalte", hex: "#2e4a46" },
-      { name: "Arcilla", hex: "#c06b3c" },
-      { name: "Tinta", hex: "#201d1a" },
+      { name: "Hueso", hex: "#f5f1e8" },
+      { name: "Arena", hex: "#ddd4c3" },
+      { name: "Gris piedra", hex: "#a9a59b" },
+      { name: "Madera clara", hex: "#c3a77e" },
+      { name: "Olivillo", hex: "#7c815b" },
+      { name: "Detalle negro", hex: "#26231d" },
     ],
-    typography: [
-      { label: "Título", value: "Söhne / Grotesk" },
-      { label: "Texto", value: "Neue Haas Grotesk" },
-      { label: "Marca", value: "Dibujo a mano" },
+    furniture: [
+      "Sofá modular en lino arena, diseño propio",
+      "Mesa de roble de 3 m. con tablón único",
+      "Butaca vintage restaurada, cuero natural",
+      "Estantería de acero y roble de paso al patio",
+      "Lámpara de pie de fibra natural tejida",
+    ],
+    lighting: [
+      "Luz de día norte filtrada por celosía de madera",
+      "Barras lineales embutidas para una luz continua y suave",
+      "Iluminación puntual sobre la mesa y las superficies de trabajo",
+      "Regulación en varios escenarios: mañana, sobremesa y noche",
+    ],
+    services: ["Interiorismo integral", "Dirección de obra", "Mobiliario a medida"],
+    role: "Dirección creativa y proyecto integral",
+    gallery: [
+      {
+        src: img("1600585154340-be6161a56a0c", 1800, 1200),
+        alt: "Estar de Casa Vento con sofá de lino y vista al jardín",
+        seed: "casa-vento-1",
+      },
+      {
+        src: img("1618221195710-dd6b41faaea6", 1200, 1500),
+        alt: "Esquina de lectura en madera y luz natural",
+        seed: "casa-vento-2",
+      },
+      {
+        src: img("1600210492486-724fe5c67fb0", 1200, 1500),
+        alt: "Dormitorio principal con cabecero en roble",
+        seed: "casa-vento-3",
+      },
+      {
+        src: img("1513694203232-719a280e022f", 1500, 1000),
+        alt: "Rincón verde junto al ventanal de la galería",
+        seed: "casa-vento-4",
+      },
+      {
+        src: img("1493809842364-78817add7ffb", 1500, 1000),
+        alt: "Cocina y comedor integrados de Casa Vento",
+        seed: "casa-vento-5",
+      },
+    ],
+    plans: [
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano de distribución de planta baja de Casa Vento",
+        label: "Planta baja · escala 1:100",
+      },
+      {
+        src: img("1600585153490-76fb20a32601", 1400, 1000),
+        alt: "Render de la cocina integrada de Casa Vento",
+        label: "Render · cocina y comedor",
+      },
     ],
     results: [
-      "Identidad renovada aplicada a empaque, papelería y fachada.",
-      "Incremento del 30% en ventas directas por taller durante el primer trimestre.",
-      "Colección presentada en dos ferias de diseño nacionales.",
+      "La planta abierta multiplicó la sensación de metros y de luz en cada ambiente.",
+      "La familia convive hoy alrededor de la cocina y el jardín, que antes eran dos espacios aislados.",
+      "El proyecto se ejecutó sin modificar la estructura, dentro del plazo y del presupuesto.",
     ],
-    services: ["Identidad", "Dirección de arte", "Packaging"],
   },
   {
-    slug: "revista-horizonte",
-    title: "Revista Horizonte",
-    client: "Editorial Horizonte",
-    category: "Diseño editorial",
+    slug: "atico-norte",
+    title: "Ático Norte",
+    type: "Residencial",
+    location: "Recoleta, Buenos Aires",
+    year: 2024,
+    area: "210 m²",
+    client: "Pareja de profesionales",
+    cover: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Materialidad serena en altura, con vistas abiertas.",
+    summary:
+      "Puesta en valor de un ático nuevo: distribución serena, madera y piedra, y un diálogo continuo con la terraza y la ciudad.",
+    description: [
+      "Un ático con buena estructura pero sin carácter: techos nuevos, espacios neutros y ninguna decisión emocional. El encargo era convertirlo en un hogar silencioso, elegante y personal.",
+      "El proyecto se apoyó en tres materialidades: madera de nogal para la calidez, piedra caliza para la permanencia y tela de lino para la textura. El color se reservó para el arte y la vegetación.",
+      "La terraza, antes un pasillo técnico, se transformó en un segundo estar al aire libre que completa el programa de la casa.",
+    ],
+    objectives: [
+      "Dotar de textura y temperatura a un espacio que se sentía frío por lo neutro.",
+      "Integrar la terraza a la vida diaria, no solo al verano.",
+      "Crear zonas de guardado inteligentes sin restar superficie aparente.",
+    ],
+    concept: [
+      "Nogal, caliza y lienzo: tres materiales con cuatro cifras de historia propia, combinados como elementos de una sola composición.",
+      "La luz del atardecer guió la orientación de cada ambiente; los espacios de estar miran al oeste para aprovechar el sol bajo.",
+    ],
+    layout: [
+      {
+        name: "Área social",
+        detail:
+          "Salón principal de doble altura con galería interior, comedor y estar de lectura contiguos.",
+      },
+      {
+        name: "Área privada",
+        detail:
+          "Suite principal con vestidor y baño completo; segundo dormitorio con estudio.",
+      },
+      {
+        name: "Terraza",
+        detail:
+          "Estar exterior con parrilla cubierta, living de borde y macetones de olivo y jacarandá.",
+      },
+    ],
+    materials: [
+      "Nogal americano natural",
+      "Piedra caliza pulida",
+      "Lino y lana tejida",
+      "Microcemento en los baños",
+      "Cobre y latón en detalles",
+    ],
+    palette: [
+      { name: "Linaza", hex: "#f3efe6" },
+      { name: "Nogal", hex: "#6b4f33" },
+      { name: "Caliza", hex: "#d8d2c4" },
+      { name: "Humo", hex: "#84807a" },
+      { name: "Olivillo", hex: "#7c815b" },
+      { name: "Tinta", hex: "#26231d" },
+    ],
+    furniture: [
+      "Sillón italiano de cuero, pieza clave del salón",
+      "Alfombra de lana tejida a mano",
+      "Mesa de apoyo en piedra caliza",
+      "Cama baja de nogal con dosel de lino",
+      "Estantería a medida del piso al techo",
+    ],
+    lighting: [
+      "Plafones cálidos a diferentes alturas para evitar sombras duras",
+      "Guirnaldas LED en la doble altura que resaltan la textura de la madera",
+      "Luminarias de acento sobre el arte y la biblioteca",
+      "Exterior con regaderas indirigidas y velas en la terraza",
+    ],
+    services: ["Interiorismo integral", "Mobiliario a medida", "Paisajismo de terraza"],
+    role: "Dirección creativa y proyecto integral",
+    gallery: [
+      {
+        src: img("1600566753190-17f0baa2a6c3", 1800, 1200),
+        alt: "Salón de doble altura de Ático Norte en nogal y caliza",
+        seed: "atico-norte-1",
+      },
+      {
+        src: img("1615873968403-89e068629265", 1500, 1000),
+        alt: "Estar de lectura con sofá de lino y arte",
+        seed: "atico-norte-2",
+      },
+      {
+        src: img("1616486338812-3dadae4b4ace", 1500, 1000),
+        alt: "Comedor de Ático Norte con lamparón sobre la mesa",
+        seed: "atico-norte-3",
+      },
+      {
+        src: img("1616594039964-ae9021a400a0", 1200, 1500),
+        alt: "Detalle de boiserie y materialidad serena",
+        seed: "atico-norte-4",
+      },
+      {
+        src: img("1567016432779-094069958ea5", 1200, 1500),
+        alt: "Suite principal con cama baja de nogal",
+        seed: "atico-norte-5",
+      },
+    ],
+    plans: [
+      {
+        src: img("1600585153490-76fb20a32601", 1400, 1000),
+        alt: "Render del salón de doble altura de Ático Norte",
+        label: "Render · salón principal",
+      },
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano de planta del nivel social de Ático Norte",
+        label: "Planta nivel social · 1:100",
+      },
+    ],
+    results: [
+      "El ático pasó de un espacio neutro a una pieza de arquitectura con carácter propio.",
+      "La terraza sumó un área de uso diario equivalente a un ambiente más de la casa.",
+      "Cada material elegido con los clientes se documentó con muestras reales antes de la obra.",
+    ],
+  },
+  {
+    slug: "cafe-terra-fina",
+    title: "Café Terra Fina",
+    type: "Comercial",
+    location: "Villa Crespo, Buenos Aires",
+    year: 2024,
+    area: "140 m²",
+    client: "Terra Fina Coffee",
+    cover: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Un café de especialidad que se siente como un living.",
+    summary:
+      "Proyecto integral de un café de especialidad: atmósfera cálida, materialidad noble y un guiño a la casa de barrio.",
+    description: [
+      "Terra Fina quería diferenciarse del café de cadena: un local chico donde cada objeto tuviera sentido y donde quedarse fuera el plan. Necesitaba una atmósfera, no un salón más.",
+      "Trabajamos la escala íntima: mesas de madera maciza, una barra de piedra, yeso con textura en las paredes y luz baja que acompaña la sobremesa.",
+      "El resultado es un espacio que recibe a cualquiera como invitado, con una barra generosa que invita al diálogo con el barista.",
+    ],
+    objectives: [
+      "Diferenciar la propuesta con una atmósfera de hospitalidad, no de pasillo de consumo.",
+      "Optimizar la operación: 24 posiciones, barra de servicio eficiente y espera cómoda.",
+      "Reducir el mantenimiento con materiales nobles y de bajo desgaste.",
+    ],
+    concept: [
+      "«Vine de visita»: cada decisión apunta a que el cliente se sienta en una casa prestada, con barra propia y sin apuro.",
+      "Las superficies altas de contacto se esculpen; las de tránsito se limpian con una sola pasada.",
+    ],
+    layout: [
+      {
+        name: "Planta baja",
+        detail:
+          "Barra de servicio en piedra a la vista, mesas de dos y cuatro, banco corrido junto al ventanal.",
+      },
+      {
+        name: "Contra-bar",
+        detail:
+          "Zona de descanso con estanterías y plantas, orientada a la luz de la tarde.",
+      },
+      {
+        name: "Exterior",
+        detail:
+          "Fila de mesas de madera sobre la vereda, contenida por macetones de olivo.",
+      },
+    ],
+    materials: [
+      "Piedra caliza en la barra",
+      "Madera de iroko en mesas y bancos",
+      "Yeso rústico en paredes",
+      "Hierro negro en la carpintería",
+      "Cerámica artesanal en platos y aislantes",
+    ],
+    palette: [
+      { name: "Crema", hex: "#f2eddf" },
+      { name: "Piedra", hex: "#b9b2a3" },
+      { name: "Madera", hex: "#8a5a33" },
+      { name: "Espresso", hex: "#5b4028" },
+      { name: "Olivillo", hex: "#7c815b" },
+    ],
+    furniture: [
+      "Barra de piedra con vertientes redondeadas",
+      "Mesas redondas de iroko de 70 cm",
+      "Sillas de madera apilables",
+      "Banco corrido tapizado en lino",
+      "Estantería de servicio en hierro negro",
+    ],
+    lighting: [
+      "Luz cálida individual por mesa para la sobremesa",
+      "Regaderas sobre la barra que destacan el contacto",
+      "Luz natural de la vereda, tamizada por cortinas de lino",
+    ],
+    services: ["Interiorismo comercial", "Dirección de obra", "Estudio de operación"],
+    role: "Proyecto integral y dirección de arte de espacio",
+    gallery: [
+      {
+        src: img("1554118811-1e0d58224f24", 1800, 1200),
+        alt: "Interior cálido del Café Terra Fina con barra de piedra",
+        seed: "cafe-terra-fina-1",
+      },
+      {
+        src: img("1555396273-367ea4eb4db5", 1200, 1500),
+        alt: "Mesa de madera y banco corrido junto al ventanal",
+        seed: "cafe-terra-fina-2",
+      },
+      {
+        src: img("1521017432531-fbd92d768814", 1200, 1500),
+        alt: "Barra de servicio y detalle de mesas de café",
+        seed: "cafe-terra-fina-3",
+      },
+      {
+        src: img("1445116572660-236099ec97a0", 1500, 1000),
+        alt: "Atmósfera cálida de sobremesa en Terra Fina",
+        seed: "cafe-terra-fina-4",
+      },
+    ],
+    plans: [
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano de planta del Café Terra Fina",
+        label: "Planta · 1:100",
+      },
+    ],
+    results: [
+      "El local pasó a tener la mayor ocupación media de mesas del barrio en horario de tarde.",
+      "La barra de contacto acortó los tiempos de servicio durante las horas pico.",
+      "Los materiales nobles redujeron a la mitad el presupuesto de mantenimiento mensual.",
+    ],
+  },
+  {
+    slug: "hall-torre-oceanica",
+    title: "Hall Torre Oceánica",
+    type: "Corporativo",
+    location: "Puerto Madero, Buenos Aires",
     year: 2023,
-    coverSeed: "horizonte-editorial-print",
-    accent: "#2f5f8f",
-    tagline: "Rediseño editorial para una revista de cultura latinoamericana.",
+    area: "640 m²",
+    client: "Grupo Oceánica",
+    cover: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Un hall corporativo que recibe con gravedad y calma.",
     summary:
-      "Rediseño completo de una publicación trimestral: retícula, tipografía, portadas y sistema de infografías.",
+      "Rediseño del hall e islas de encuentro de una torre de oficinas: materialidad sobria, escala humana y privacidad sonora.",
     description: [
-      "Horizonte es una revista de cultura que lleva más de veinte años publicándose. Su diseño arrastraba decisiones de la era de la fotocopia: tipografías sin carácter y una retícula que nadie sabía usar.",
-      "El rediseño partió de la entrevista con editores y diseñadores de cada sección. El objetivo no era embellecer, sino construir un sistema que hiciera más fácil el trabajo de quienes producen la revista cada tres meses.",
-      "Definimos una retícula de 6 columnas con un sistema de escalas tipográficas que da dos registros: uno sereno para los ensayos largos y otro ágil para la agenda de eventos.",
+      "El hall de la Torre Oceánica era un vestíbulo impersonal de doble altura donde nadie se detenía. El grupo quería un espacio que recibiera a clientes e invitados con seriedad y calidez.",
+      "Proyectamos islas de espera en madera y tela, una recepción baja de piedra y un juego de planos verticales que tamiza la luz e introduce calma acústica.",
+      "El resultado equilibra la escala monumental de la torre con la escala humana del encuentro: se puede trabajar, reunirse o simplemente esperar en silencio.",
     ],
     objectives: [
-      "Recuperar un carácter editorial propio frente al ruido de las redes.",
-      "Construir una retícula modular que acortara los tiempos de armado.",
-      "Diseñar portadas que funcionaran impresas y como piezas digitales.",
+      "Fomentar el encuentro informal entre plantas y empresas del grupo.",
+      "Reducir la reverberación propia de la doble altura.",
+      "Comunicar solidez y sobriedad, acorde a la marca corporativa.",
     ],
-    process: [
+    concept: [
+      "«Gravedad vertical»: planos de madera encementada construyen una secuencia de umbrales que ordenan los flujos.",
+      "La calma sonora se logra con paneles acústicos textiles integrados a la arquitectura, no con elementos pegados.",
+    ],
+    layout: [
       {
-        name: "Auditoría",
+        name: "Acceso",
         detail:
-          "Revisamos doce números para entender los patrones reales de uso: qué secciones cambiaban, cuáles eran fijas y dónde se rompía el sistema.",
+          "Recepción en piedra con registro visual directo a los ascensores y al café.",
       },
       {
-        name: "Retícula",
+        name: "Islas de encuentro",
         detail:
-          "Prototipamos la nueva retícula con contenido real durante tres meses en paralelo a la edición vigente.",
+          "Módulos de espera con toma eléctrica y USB, mesas bajas y butacas de descanso.",
       },
       {
-        name: "Lanzamiento",
+        name: "Área de café",
         detail:
-          "Publicación del primer número rediseñado y entrenamiento del equipo interno para sostener el sistema.",
+          "Coffee spot self-service con barra de madera y asientos altos para reuniones informales.",
       },
     ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/horizonte-editorial-1/1200/1600",
-        alt: "Portada del primer número rediseñado de Horizonte",
-        seed: "horizonte-editorial-1",
-      },
-      {
-        src: "https://picsum.photos/seed/horizonte-editorial-2/1600/1000",
-        alt: "Doble página con ensayo tipográfico",
-        seed: "horizonte-editorial-2",
-      },
-      {
-        src: "https://picsum.photos/seed/horizonte-editorial-3/1600/1100",
-        alt: "Sistema de infografías de la revista Horizonte",
-        seed: "horizonte-editorial-3",
-      },
-      {
-        src: "https://picsum.photos/seed/horizonte-editorial-4/1600/1200",
-        alt: "Pliegos de la revista en la imprenta",
-        seed: "horizonte-editorial-4",
-      },
+    materials: [
+      "Madera de roble teñida en gris",
+      "Piedra caliza pulida",
+      "Paneles acústicos de lana",
+      "Microcemento en zonas de paso",
+      "Acero negro en la carpintería",
     ],
     palette: [
-      { name: "Hueso", hex: "#f4f0e7" },
-      { name: "Azul profundo", hex: "#2f5f8f" },
-      { name: "Sangre", hex: "#9c1f1a" },
-      { name: "Negro tinta", hex: "#191714" },
+      { name: "Nieve", hex: "#f3f1ec" },
+      { name: "Gris antracita", hex: "#5a5c5a" },
+      { name: "Roble gris", hex: "#8f877a" },
+      { name: "Olivillo", hex: "#7c815b" },
+      { name: "Tinta", hex: "#26231d" },
     ],
-    typography: [
-      { label: "Ensayo", value: "Editorial New" },
-      { label: "Infografía", value: "IBM Plex Sans" },
-      { label: "Portada", value: "Mazius Display" },
+    furniture: [
+      "Butacas de espera de cuero y madera",
+      "Módulos de trabajo individuales con contacto",
+      "Mesas de apoyo en piedra pulida",
+      "Barra de café en roble",
+    ],
+    lighting: [
+      "Cielorraso de luz difusa que evita sombras duras en los rostros",
+      "Regaderas sobre la recepción y las áreas de café",
+      "Iluminación perimetral vertical que acentúa los planos de madera",
+    ],
+    services: ["Interiorismo corporativo", "Diseño acústico", "Dirección de obra"],
+    role: "Proyecto integral de interiorismo corporativo",
+    gallery: [
+      {
+        src: img("1497366754035-f200968a6e72", 1800, 1200),
+        alt: "Vestíbulo de la Torre Oceánica con islas de madera",
+        seed: "hall-torre-1",
+      },
+      {
+        src: img("1497366811353-6870744d04b2", 1500, 1000),
+        alt: "Recepción en piedra y planos verticales de madera",
+        seed: "hall-torre-2",
+      },
+      {
+        src: img("1524758631624-e2822e304c36", 1500, 1000),
+        alt: "Área de encuentro y café de la torre",
+        seed: "hall-torre-3",
+      },
+      {
+        src: img("1521737604893-d14cc237f11d", 1200, 1500),
+        alt: "Detalle de butacas y materiales cálidos del hall",
+        seed: "hall-torre-4",
+      },
+    ],
+    plans: [
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano del hall y las áreas de encuentro de la torre",
+        label: "Planta hall · 1:150",
+      },
     ],
     results: [
-      "Premio a la mejor dirección editorial en los premios de diseño 2023.",
-      "Tiempo de armado de cada número reducido a la mitad.",
-      "Renovación del 100% de la suscripción existente durante el primer año.",
+      "El espacio pasó de ser un lugar de tránsito a un punto de reunión utilizado por todas las plantas.",
+      "Las mediciones de reverberación pos-obra cayeron por debajo del estándar de confort acústico.",
+      "El café y las islas son hoy el lugar elegido para las reuniones informales del grupo.",
     ],
-    services: ["Dirección de arte", "Diseño editorial", "Sistema gráfico"],
   },
   {
-    slug: "terra-skincare",
-    title: "Terra Botánica",
-    client: "Terra Botánica",
-    category: "Packaging",
+    slug: "piso-bruma",
+    title: "Departamento Bruma",
+    type: "Remodelación",
+    location: "Mar del Plata, Buenos Aires",
     year: 2024,
-    coverSeed: "terra-packaging-skincare",
-    accent: "#3f6b4f",
-    tagline: "Packaging para una línea de cuidado natural, honesto y despojado.",
+    area: "95 m²",
+    client: "Pareja joven",
+    cover: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Rediseño completo de un departamento frente al mar.",
     summary:
-      "Sistema de packaging para seis productos de cuidado de la piel, con estructura de vidrio reutilizable y una identidad botánica.",
+      "Un departamento clásico remodelado de raíz: se demolieron muros, se recompuso el programa y se puso el horizonte al centro.",
     description: [
-      "Terra Botánica nació como una línea de aceites y cremas elaborados con vegetales de huerta propia. El desafío del packaging era doble: comunicar lo natural sin caer en el cliché del «verde orgánico», y resolver la reutilización de los envases.",
-      "Diseñamos un sistema en vidrio color ámbar con etiquetas de una sola tinta que se quitan con agua. Cada producto lleva una ilustración de la planta protagonista dibujada con tinta, una por una.",
-      "El envase está pensado para no desecharse: la etiqueta sale sin dejar residuo y el vidrio se devuelve al local a cambio de un descuento.",
+      "El departamento tenía una distribución cuadriculada que daba la espalda al mar: la vista se repartía en varios ambientes y se perdía en los corredores.",
+      "La remodelación eliminó los tabiques intermedios para crear un gran espacio continuo que abre el horizonte. La cocina, antes un pasillo, se convirtió en el eje del departamento.",
+      "El blanco roto y la madera clara amplifican la luz; el verde de los postigos evoca el paisaje costero sin competir con él.",
     ],
     objectives: [
-      "Diferenciar la línea en un mercado saturado de promesas de pureza.",
-      "Reducir el desperdicio con un envase reutilizable y una etiqueta removible.",
-      "Contar el origen real de cada ingrediente sin letra chica.",
+      "Maximizar la vista al mar desde todas las áreas de estar.",
+      "Ganar un dormitorio en suite dentro de la misma superficie.",
+      "Rehacer instalaciones eléctricas y pluviales sin alterar la estructura del edificio.",
     ],
-    process: [
+    concept: [
+      "«Todo hacia el horizonte»: los ambientes se escorzan hacia el ventanal y el programa privado se compacta detrás.",
+      "La costanera inspira una paleta de hueso, arena, madera y postigos verdes.",
+    ],
+    layout: [
       {
-        name: "Materialidad",
+        name: "Área de día",
         detail:
-          "Probamos dieciséis combinaciones de vidrio, papel y tinta hasta encontrar la que resistía el aceite sin perder legibilidad.",
+          "Salón, comedor y cocina integrados en un solo espacio orientado al mar, con isla de trabajo.",
       },
       {
-        name: "Ilustración",
+        name: "Área de noche",
         detail:
-          "Las seis plantas fueron dibujadas a tinta a partir de ejemplares reales del huerto, no de bancos de imágenes.",
+          "Suite principal con vestidor camino; segundo dormitorio de huéspedes con baño propio.",
       },
       {
-        name: "Validación",
+        name: "Estudio",
         detail:
-          "Testeamos la experiencia de devolución del envase con clientes reales durante el lanzamiento piloto.",
+          "Rincón de trabajo junto al ventanal del salón, con mesa de madera y contacto oculto.",
       },
     ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/terra-skincare-1/1600/1100",
-        alt: "Botellas ámbar de Terra Botánica en hilera",
-        seed: "terra-skincare-1",
-      },
-      {
-        src: "https://picsum.photos/seed/terra-skincare-2/1600/1200",
-        alt: "Detalle de etiqueta con ilustración botánica",
-        seed: "terra-skincare-2",
-      },
-      {
-        src: "https://picsum.photos/seed/terra-skincare-3/1200/1600",
-        alt: "Caja de regalo de Terra Botánica",
-        seed: "terra-skincare-3",
-      },
-      {
-        src: "https://picsum.photos/seed/terra-skincare-4/1600/900",
-        alt: "Stand de Terra Botánica en feria de diseño",
-        seed: "terra-skincare-4",
-      },
+    materials: [
+      "Madera clara de fresno",
+      "Hormigón alisado",
+      "Pintura de cal",
+      "Postigos de madera verde olivo",
+      "Cerámica de gran formato en los baños",
     ],
     palette: [
-      { name: "Ámbar", hex: "#c8956c" },
-      { name: "Bosque", hex: "#3f6b4f" },
-      { name: "Hueso", hex: "#f2eee5" },
-      { name: "Tinta", hex: "#1d1c18" },
+      { name: "Hueso", hex: "#f5f1e8" },
+      { name: "Arena", hex: "#e3d7c0" },
+      { name: "Fresno", hex: "#cbb492" },
+      { name: "Verde olivo", hex: "#6d7353" },
+      { name: "Tinta", hex: "#26231d" },
     ],
-    typography: [
-      { label: "Título", value: "Canela Text" },
-      { label: "Texto", value: "Helvetica Now" },
-      { label: "Ilustración", value: "Tinta china" },
+    furniture: [
+      "Sofá de lino gris arena de tres cuerpos",
+      "Tablón de fresno sobre ménsulas ocultas",
+      "Isla de cocina en madera y mármol",
+      "Cama de plataforma con cabecero de fresno",
+      "Sillón de descanso junto al ventanal",
     ],
-    results: [
-      "El 40% de las ventas del primer semestre fueron envases devueltos y rellenados.",
-      "Cobertura en dos publicaciones de diseño especializadas en packaging.",
-      "Línea completa en vidrio reciclado, sin plástico.",
+    lighting: [
+      "Luz norte natural que acompaña todo el día de estar",
+      "Regaderas LED ocultas en el cielorraso para la cocina",
+      "Apliques de lectura junto a los rincones de descanso",
     ],
-    services: ["Packaging", "Ilustración", "Estrategia de producto"],
-  },
-  {
-    slug: "cafe-nube",
-    title: "Café Nube",
-    client: "Café Nube",
-    category: "Branding",
-    year: 2022,
-    coverSeed: "cafenube-brand-coffee",
-    accent: "#a05a2c",
-    tagline: "Identidad y packaging para un tostador de café de especialidad.",
-    summary:
-      "Desde el nombre hasta la bolsa: una marca que le habla al consumidor con la honestidad de un tostador de barrio.",
-    description: [
-      "Café Nube es un tostador de especialidad que abrió su primer local en 2022. Venían del café de autor, pero la marca no: el nombre y la gráfica no acompañaban la calidad del producto.",
-      "Propuse una identidad que se apoya en la máquina de tostado, el corazón del negocio. El logotipo es una abstracción del tambor de la tostadora girando, con una sola «nube» de humo.",
-      "Cada origen lleva una etiqueta distinta que cambia de color con el nivel de tostado. El sistema creció después hacia el menú del local, la app y los productos de regalo.",
-    ],
-    objectives: [
-      "Crear una identidad reconocible en el mostrador y en la góndola de supermercado.",
-      "Explicar el nivel de tostado con un código simple que cualquiera lea.",
-      "Construir una marca que pudiera expandirse a varios locales sin perder el carácter.",
-    ],
-    process: [
-      {
-        name: "Nombre",
-        detail:
-          "Taller de naming con los fundadores. De cuarenta candidatos, «Nube» ganó por la imagen del humo del tostado, la más honesta del oficio.",
-      },
-      {
-        name: "Sistema",
-        detail:
-          "Definimos el logotipo, la retícula de etiquetas y la escala de color por nivel de tostado.",
-      },
-      {
-        name: "Crecimiento",
-        detail:
-          "Acompañé la apertura del segundo local y la línea de productos de regalo con la misma identidad.",
-      },
-    ],
+    services: ["Remodelación integral", "Cocinas y baños", "Mobiliario a medida"],
+    role: "Dirección de obra y proyecto integral",
     gallery: [
       {
-        src: "https://picsum.photos/seed/cafenube-brand-1/1600/1100",
-        alt: "Bolsa de Café Nube con etiqueta de tostado",
-        seed: "cafenube-brand-1",
+        src: img("1600607687939-ce8a6c25118c", 1800, 1200),
+        alt: "Salón integrado del Departamento Bruma con vista al mar",
+        seed: "piso-bruma-1",
       },
       {
-        src: "https://picsum.photos/seed/cafenube-brand-2/1200/1600",
-        alt: "Taza con el logo de Café Nube",
-        seed: "cafenube-brand-2",
+        src: img("1600607687644-aac4c3eac7f4", 1500, 1000),
+        alt: "Cocina con isla en madera y mármol, abierta al salón",
+        seed: "piso-bruma-2",
       },
       {
-        src: "https://picsum.photos/seed/cafenube-brand-3/1600/1000",
-        alt: "Mostrador del local de Café Nube",
-        seed: "cafenube-brand-3",
+        src: img("1600121848594-d8644e57abab", 1500, 1000),
+        alt: "Comedor y ventanal de piso a techo sobre la costanera",
+        seed: "piso-bruma-3",
       },
       {
-        src: "https://picsum.photos/seed/cafenube-brand-4/1600/1200",
-        alt: "Serie de etiquetas por nivel de tostado",
-        seed: "cafenube-brand-4",
+        src: img("1598928506311-c55ded91a20c", 1200, 1500),
+        alt: "Dormitorio principal de Bruma con cabecero de fresno",
+        seed: "piso-bruma-4",
       },
     ],
-    palette: [
-      { name: "Tostado claro", hex: "#d9a05f" },
-      { name: "Tostado medio", hex: "#a05a2c" },
-      { name: "Tostado oscuro", hex: "#4a2b1a" },
-      { name: "Crema", hex: "#f0e9dd" },
+    plans: [
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano de la distribución remodelada de Bruma",
+        label: "Planta remodelada · 1:100",
+      },
     ],
-    typography: [
-      { label: "Marca", value: "Grotesk condensada" },
-      { label: "Etiqueta", value: "Futura" },
-      { label: "Soporte", value: "Times Roman" },
+    beforeAfter: [
+      {
+        before: img("1600607687939-ce8a6c25118c", 1400, 1000),
+        after: img("1600607687644-aac4c3eac7f4", 1400, 1000),
+        alt: "Antes y después de la cocina y salón integrados",
+      },
+      {
+        before: img("1600121848594-d8644e57abab", 1400, 1000),
+        after: img("1493809842364-78817add7ffb", 1400, 1000),
+        alt: "Antes y después del espacio de día",
+      },
     ],
     results: [
-      "De un local a tres en dos años, con la misma identidad.",
-      "Café Nube elegida como mejor marca emergente de 2022 por la asociación de tostadores.",
-      "Línea de regalo que se convirtió en el 25% de la facturación.",
+      "La vista al mar ahora acompaña todos los momentos del día, no solo el salón.",
+      "El dormitorio en suite resolvió la necesidad de un baño propio sin restar metros.",
+      "La obra se ejecutó en cuatro meses con el departamento deshabitado.",
     ],
-    services: ["Naming", "Identidad", "Packaging"],
   },
   {
-    slug: "atelier-sur",
-    title: "Atelier Sur",
-    client: "Atelier Sur",
-    category: "Diseño editorial",
-    year: 2021,
-    coverSeed: "ateliersur-editorial-monograph",
-    accent: "#7a5233",
-    tagline: "Monografía para una artista textil, veinte años de obra.",
-    summary:
-      "Monografía de 240 páginas que documenta dos décadas de trabajo textil, diseñada como objeto de colección.",
-    description: [
-      "Atelier Sur es el taller de una artista textil cuya obra se ha tejido, en sentido literal, durante veinte años. La monografía debía hacer honor a esa escala de tiempo.",
-      "Diseñamos un libro en el que el papel imita la textura de los materiales: un papel de algodón para las obras, un papel más liso para los textos. La retícula se quiebra solo cuando la obra lo pide.",
-      "Cada capítulo abre con un primer plano de la pieza y una cronología marginal que permite leer la evolución de la artista sin salir de la imagen.",
-    ],
-    objectives: [
-      "Diseñar un objeto que se sintiera tan cuidado como las obras que documenta.",
-      "Ordenar veinte años de producción sin perder la intensidad de cada pieza.",
-      "Integrar fotografía, texto y material en un solo sistema visual.",
-    ],
-    process: [
-      {
-        name: "Archivo",
-        detail:
-          "Trabajo con el archivo completo de la artista: más de trescientas piezas, bocetos y registros de exposiciones.",
-      },
-      {
-        name: "Papel",
-        detail:
-          "Selección y prueba de cinco papeles de impresión hasta encontrar el que reproducía la densidad del tejido.",
-      },
-      {
-        name: "Edición",
-        detail:
-          "Coedición con la artista: la selección de imágenes y los textos se revisaron pieza por pieza.",
-      },
-    ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/ateliersur-1/1600/1200",
-        alt: "Portada en tela de la monografía Atelier Sur",
-        seed: "ateliersur-1",
-      },
-      {
-        src: "https://picsum.photos/seed/ateliersur-2/1600/900",
-        alt: "Doble página con detalle de tejido",
-        seed: "ateliersur-2",
-      },
-      {
-        src: "https://picsum.photos/seed/ateliersur-3/1200/1600",
-        alt: "Capítulo de la monografía sobre la mesa",
-        seed: "ateliersur-3",
-      },
-      {
-        src: "https://picsum.photos/seed/ateliersur-4/1600/1100",
-        alt: "Página de cronología de la obra textil",
-        seed: "ateliersur-4",
-      },
-    ],
-    palette: [
-      { name: "Lino", hex: "#e7e0d2" },
-      { name: "Siena", hex: "#7a5233" },
-      { name: "Añil", hex: "#2b3a4a" },
-      { name: "Carbón", hex: "#26241f" },
-    ],
-    typography: [
-      { label: "Texto", value: "Iowan Old Style" },
-      { label: "Títulos", value: "Fraunces" },
-      { label: "Cronología", value: "Gill Sans" },
-    ],
-    results: [
-      "Primera edición agotada en tres meses.",
-      "El libro fue seleccionado en la lista de mejores libros de diseño del año.",
-      "Exposición itinerante que acompaña el lanzamiento de la monografía.",
-    ],
-    services: ["Diseño editorial", "Dirección de arte", "Producción gráfica"],
-  },
-  {
-    slug: "botanica-illustration",
-    title: "Botánica",
-    client: "Publicación de autor",
-    category: "Ilustración",
+    slug: "panaderia-masa",
+    title: "Panadería Masa",
+    type: "Comercial",
+    location: "Coghlan, Buenos Aires",
     year: 2023,
-    coverSeed: "botanica-illustration-botanical",
-    accent: "#4c6b4a",
-    tagline: "Serie de ilustraciones botánicas de la flora rioplatense.",
+    area: "80 m²",
+    client: "Masa Panadería",
+    cover: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Una panadería que huele a casa y se ve como oficio.",
     summary:
-      "Veinticuatro láminas de plantas nativas, dibujadas a tinta y digitalizadas, reunidas en una colección impresa.",
+      "Interiorismo para una panadería de barrio con horno a la vista: la producción como espectáculo y el pan como protagonista.",
     description: [
-      "Botánica es un proyecto personal que nació durante el encierro, cuando empecé a dibujar las plantas del barrio que podía ver desde la ventana. Lo que empezó como ejercicio terminó en una colección de veinticuatro láminas.",
-      "Cada planta está dibujada a tinta sobre papel, una sola toma, sin corrección. El error queda, porque la planta también es así: imperfecta.",
-      "La colección se imprimió en tres ediciones de cincuenta ejemplares numerados, y dio lugar a un calendario y a una serie de posters que se vendieron online.",
+      "Masa es una panadería de fermentación natural en el corazón de Coghlan. El local debía hacer visible el oficio: el pan se amasa, se hornea y se vende a la vista del vecino.",
+      "Diseñamos una línea visual que conduce la mirada del mostrador al horno. La madera clara, el yeso y el hierro negro sostienen una atmósfera artesanal, sin nostalgia.",
+      "El espacio prioriza la velocidad de la venta y, a la vez, invita a quedarse: una barra larga y un banco junto al ventanal convierten la compra en pausa.",
     ],
     objectives: [
-      "Desarrollar una voz de ilustración propia, fuera del encargo comercial.",
-      "Documentar la flora nativa con respeto y precisión.",
-      "Convertir el proyecto en una pieza impresa de valor.",
+      "Mostrar el proceso de elaboración como valor del producto.",
+      "Acomodar la fila de la mañana y de la tarde sin chocar con la operación.",
+      "Generar una atmósfera de barrio que invite a quedarse y a volver.",
     ],
-    process: [
+    concept: [
+      "«El pan se hace delante de todos». El horno, piedra angular, se trata como una pieza escenográfica del local entero.",
+      "La madera de árbol del pan, el yeso y el hierro negro crean una materialidad que envejece bien con el uso.",
+    ],
+    layout: [
       {
-        name: "Observación",
+        name: "Frente",
         detail:
-          "Salidas a registrar cada especie en su hábitat: el dibujo empezaba a lápiz en el lugar.",
+          "Mostrador de servicio con vitrina embutida, zona de pago y banco corrido frente al ventanal.",
       },
       {
-        name: "Tinta",
+        name: "Producción",
         detail:
-          "Trazado final a tinta china en una sola pasada, sin boceto encima.",
+          "Horno y bacha a la vista, separados por una carpintería de hierro y vidrio.",
       },
       {
-        name: "Edición",
+        name: "Molienda",
         detail:
-          "Digitalización, retoque mínimo y diseño de la lámina completa con datos de la especie.",
+          "Molinillo de exhibición y estantería de granos que explica el origen del harina.",
       },
     ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/botanica-1/1200/1600",
-        alt: "Lámina de la serie Botánica con planta nativa",
-        seed: "botanica-1",
-      },
-      {
-        src: "https://picsum.photos/seed/botanica-2/1600/1200",
-        alt: "Herramientas de tinta sobre la mesa de dibujo",
-        seed: "botanica-2",
-      },
-      {
-        src: "https://picsum.photos/seed/botanica-3/1600/1000",
-        alt: "Exposición de las láminas de Botánica",
-        seed: "botanica-3",
-      },
-      {
-        src: "https://picsum.photos/seed/botanica-4/1600/1100",
-        alt: "Posters de la serie Botánica colgados",
-        seed: "botanica-4",
-      },
+    materials: [
+      "Madera de iroko",
+      "Hormigón pulido",
+      "Yeso y cal en paredes",
+      "Hierro negro en carpinterías",
+      "Ladrillo a la vista refractario",
     ],
     palette: [
-      { name: "Verde vegetal", hex: "#4c6b4a" },
-      { name: "Hueso", hex: "#f1eee6" },
-      { name: "Pizarra", hex: "#3a3f3c" },
-      { name: "Ocre", hex: "#b5913f" },
+      { name: "Miga", hex: "#f4efe3" },
+      { name: "Harina", hex: "#e7dfd1" },
+      { name: "Madera", hex: "#9a683a" },
+      { name: "Corteza", hex: "#6a4526" },
+      { name: "Olivillo", hex: "#7c815b" },
     ],
-    typography: [
-      { label: "Lámina", value: "Centaur" },
-      { label: "Datos", value: "Univers" },
-      { label: "Marca", value: "Tinta china" },
+    furniture: [
+      "Banco corrido de madera tapizado",
+      "Mesa alta de degustación junto al mostrador",
+      "Estantería de molienda en hierro negro",
+      "Cestos de exhibición de pan artesanales",
+    ],
+    lighting: [
+      "Luz cálida sobre el horno que acentúa el calor de la producción",
+      "Regaderas sobre la vitrina para la lectura del color del pan",
+      "Luz natural del ventanal tamizada por cortinas de lino",
+    ],
+    services: ["Interiorismo comercial", "Dirección de obra", "Mobiliario a medida"],
+    role: "Proyecto integral de interiorismo comercial",
+    gallery: [
+      {
+        src: img("1509440159596-0249088772ff", 1800, 1200),
+        alt: "Mostrador de Panadería Masa con pan artesanal expuesto",
+        seed: "panaderia-masa-1",
+      },
+      {
+        src: img("1517430816045-df4b7de11d1d", 1200, 1500),
+        alt: "Detalle del pan y la vitrina de Masa",
+        seed: "panaderia-masa-2",
+      },
+      {
+        src: img("1555507036-ab1f4038808a", 1200, 1500),
+        alt: "Barra y banco junto al ventanal de la panadería",
+        seed: "panaderia-masa-3",
+      },
+      {
+        src: img("1453614512568-c4024d13c247", 1500, 1000),
+        alt: "Ambiente cálido de la panadería de barrio",
+        seed: "panaderia-masa-4",
+      },
+    ],
+    plans: [
+      {
+        src: img("1581092160562-40aa08e78837", 1400, 1000),
+        alt: "Plano de planta de la Panadería Masa",
+        label: "Planta · 1:100",
+      },
     ],
     results: [
-      "Tres ediciones agotadas de cincuenta ejemplares cada una.",
-      "Participación en tres ferias de ilustración independientes.",
-      "La serie dio origen a una línea de papelería que sigue vendiéndose.",
+      "La fila de la mañana se ordenó sin interferir con la producción.",
+      "El horno a la vista se convirtió en el lugar que detiene a los vecinos y atrae curiosos.",
+      "Masa duplicó la permanencia media de sus clientes, y con ella la compra por visita.",
     ],
-    services: ["Ilustración", "Diseño editorial", "Serigrafía"],
   },
   {
-    slug: "vela-web",
-    title: "Vela",
-    client: "Vela",
-    category: "Diseño web",
-    year: 2024,
-    coverSeed: "vela-web-candles",
-    accent: "#c98a3b",
-    tagline: "Dirección de arte y diseño web para una marca de velas.",
+    slug: "estudio-ruka",
+    title: "Estudio Ruka",
+    type: "Especiales",
+    location: "Palermo Hollywood, Buenos Aires",
+    year: 2025,
+    area: "180 m²",
+    client: "Ruka Yoga & Bienestar",
+    cover: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80",
+    tagline: "Un estudio de yoga y bienestar que se siente como un retiro.",
     summary:
-      "Sitio web de comercio con dirección de arte propia: fotografía editorial, tipografía generosa y una experiencia de compra serena.",
+      "Proyecto de bienestar: salas de práctica, vestidores y recepción en un registro de calma y materialidad terrestre.",
     description: [
-      "Vela es una marca de velas de cera de soja con un local pequeño y una historia grande. El sitio debía traducir esa cercanía a la pantalla, sin caer en el e-commerce genérico.",
-      "La dirección de arte partió de una decisión: mostrar las velas encendidas, en contextos reales, no sobre fondos neutros. La fotografía es el producto.",
-      "Diseñé el sistema visual y la interfaz: una retícula amplia, tipografía grande y una paleta cálida. La compra se resuelve en tres pasos, sin distracciones.",
+      "Ruka buscaba un espacio que preparara la mente antes de entrar a las salas: nada de luces fuertes ni superficies frías. Un lugar donde la calma se percibiera desde el umbral.",
+      "Diseñamos una secuencia de descanso: recepción en madera, corredor de transición con luz baja y salas de práctica en tonos tierra.",
+      "La madera de roble, el hormigón teñido y el textil de lino dominan la materialidad. La vegetación interior aporta humedad y vida a cada sala.",
     ],
     objectives: [
-      "Crear una experiencia de compra serena que refleje la calma de la marca.",
-      "Poner la fotografía editorial al frente, no el catálogo.",
-      "Lograr tiempos de carga rápidos en móvil, donde se genera la mayor parte de la venta.",
+      "Amortiguar el ruido de la calle y lograr privacidad acústica entre salas.",
+      "Crear una zona de transición que apacigüe a quien entra.",
+      "Resolver vestidores compactos pero confortables para clases consecutivas.",
     ],
-    process: [
+    concept: [
+      "«Retiro dentro de la ciudad»: una progresión de umbrales que baja el ritmo del visitante paso a paso.",
+      "Tonos tierra y madera clara evocan el piso del bosque; la luz es siempre indirecta y tibia.",
+    ],
+    layout: [
       {
-        name: "Dirección de arte",
+        name: "Salas de práctica",
         detail:
-          "Construcción del set de fotografía con la marca: luz cálida, materialidad y encuadres editoriales.",
+          "Una sala principal de 60 m² con espejos laterales y una segunda de 35 m² para talleres.",
       },
       {
-        name: "Sistema",
+        name: "Recepción",
         detail:
-          "Tipografía, retícula y paleta que trasladan la identidad física al entorno digital.",
+          "Mostrador bajo de madera, zona de tisana y estantería de accesorios.",
       },
       {
-        name: "Desarrollo",
+        name: "Vestidores",
         detail:
-          "Prototipo en alta fidelidad, iteración con el equipo y puesta en producción con estándares de performance.",
+          "Taquillas de roble, bancos y tres duchas por sexo, con iluminación tenue.",
       },
     ],
-    gallery: [
-      {
-        src: "https://picsum.photos/seed/vela-web-1/1600/1000",
-        alt: "Pantalla de inicio del sitio de Vela",
-        seed: "vela-web-1",
-      },
-      {
-        src: "https://picsum.photos/seed/vela-web-2/1600/1200",
-        alt: "Detalle de tipografía del sitio de Vela",
-        seed: "vela-web-2",
-      },
-      {
-        src: "https://picsum.photos/seed/vela-web-3/1200/1600",
-        alt: "Vela encendida fotografiada para el sitio",
-        seed: "vela-web-3",
-      },
-      {
-        src: "https://picsum.photos/seed/vela-web-4/1600/1100",
-        alt: "Ficha de producto del sitio de Vela",
-        seed: "vela-web-4",
-      },
+    materials: [
+      "Roble natural cepillado",
+      "Hormigón teñido",
+      "Lino y algodón en textiles",
+      "Barro y cal en revoques",
+      "Vidrio esmerilado de privacidad",
     ],
     palette: [
-      { name: "Cera", hex: "#f5efe3" },
-      { name: "Miel", hex: "#c98a3b" },
-      { name: "Carbón", hex: "#2a2622" },
-      { name: "Piedra", hex: "#8a857c" },
+      { name: "Crema", hex: "#f2ede0" },
+      { name: "Arena", hex: "#d9cfb8" },
+      { name: "Tierra", hex: "#a1835f" },
+      { name: "Roble", hex: "#b99a72" },
+      { name: "Olivillo", hex: "#7c815b" },
     ],
-    typography: [
-      { label: "Display", value: "ABC Diatype" },
-      { label: "Texto", value: "Inter Tight" },
-      { label: "Etiquetas", value: "JetBrains Mono" },
+    furniture: [
+      "Bancos bajos de roble en los vestidores",
+      "Sillones de descanso en la recepción",
+      "Estantería de accesorios de yoga",
+      "Lámparas de papel y lino de luz difusa",
+    ],
+    lighting: [
+      "Luz indirecta regulable en las salas de práctica",
+      "Focos cálidos en la recepción que acompañan el descanso",
+      "Iluminación de acento sobre la vegetación y las paredes de barro",
+    ],
+    services: ["Interiorismo comercial", "Acústica", "Diseño de iluminación"],
+    role: "Proyecto integral y dirección de iluminación",
+    gallery: [
+      {
+        src: img("1544161515-4ab6ce6db874", 1800, 1200),
+        alt: "Sala principal del Estudio Ruka con suelo de madera",
+        seed: "estudio-ruka-1",
+      },
+      {
+        src: img("1519167758481-83f550bb49b3", 1500, 1000),
+        alt: "Espacio de práctica con luz indirecta tibia",
+        seed: "estudio-ruka-2",
+      },
+      {
+        src: img("1596178065887-1198b6148b2b", 1200, 1500),
+        alt: "Detalle de materialidad en barro y madera",
+        seed: "estudio-ruka-3",
+      },
+      {
+        src: img("1598300042247-d088f8ab3a91", 1200, 1500),
+        alt: "Rincón de descanso en la recepción de Ruka",
+        seed: "estudio-ruka-4",
+      },
+    ],
+    plans: [
+      {
+        src: img("1600585153490-76fb20a32601", 1400, 1000),
+        alt: "Render de la sala de práctica del Estudio Ruka",
+        label: "Render · sala principal",
+      },
     ],
     results: [
-      "Conversión de visita a compra duplicada en los primeros tres meses.",
-      "Puntuación de 98 en desempeño móvil en auditoría de performance.",
-      "El sitio pasó a ser el canal de venta principal de la marca.",
+      "Los vecinos describen el ingreso como un cambio de ritmo inmediato respecto a la calle.",
+      "La sala principal funciona en régimen continuo de clases sin solaparse ni ensordecer.",
+      "La iluminación regulable permite adaptar la atmósfera a cada tipo de práctica.",
     ],
-    services: ["Dirección de arte", "Diseño web", "Sistema de diseño"],
   },
 ];
 

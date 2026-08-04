@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* Warm monochrome palette + a single vermilion accent */
-  --color-paper: #faf9f6;
-  --color-surface: #ffffff;
-  --color-subtle: #f3f1eb;
-  --color-ink: #1c1b18;
-  --color-muted: #77726a;
-  --color-faint: #a6a09a;
-  --color-line: #e7e3db;
-  --color-line-strong: #d8d3c9;
-  --color-accent: #d8502f;
-  --color-accent-soft: #f7e9e3;
-  --color-accent-deep: #b43d22;
+  /* Paleta cálida y neutra · interiorismo de lujo */
+  --color-paper: #f6f3ec;
+  --color-surface: #fbfaf7;
+  --color-subtle: #ede8dd;
+  --color-sand: #e3dccb;
+  --color-ink: #3a362e;
+  --color-ink-strong: #26231d;
+  --color-muted: #76705f;
+  --color-faint: #a49d8d;
+  --color-line: #e2dccb;
+  --color-line-strong: #d2cab7;
+  --color-accent: #7c815b;
+  --color-accent-deep: #5c6142;
+  --color-accent-soft: #ecefe1;
+  --color-wood: #c7b394;
 
-  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-serif: var(--font-cormorant), Georgia, serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -37,7 +40,6 @@
     background-color: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv01";
   }
 
   ::selection {
@@ -45,7 +47,6 @@
     color: var(--color-paper);
   }
 
-  /* Keep readouts / small metadata touchable but aesthetically quiet */
   @media (hover: hover) and (pointer: fine) {
     ::-webkit-scrollbar {
       width: 10px;
@@ -63,7 +64,6 @@
     }
   }
 
-  /* Visible, consistent focus ring */
   :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
@@ -84,15 +84,8 @@
   .u-uppercase-mono {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-  }
-  .u-soft-grain {
-    background-image: radial-gradient(
-      circle at 18% 12%,
-      rgba(216, 80, 47, 0.028),
-      transparent 46%
-    );
   }
   .u-hide-scrollbar {
     scrollbar-width: none;
@@ -100,9 +93,35 @@
   .u-hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* Retícula técnica muy suave (trazado de plano) */
+  .u-tech-grid {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 0.5;
+  }
+
+  /* Textura de papel muy sutil */
+  .u-paper-grain {
+    background-image: radial-gradient(
+      circle at 18% 12%,
+      rgba(124, 129, 91, 0.05),
+      transparent 46%
+    );
+  }
+
+  /* Luz cálida ambiental */
+  .u-soft-light {
+    background: radial-gradient(
+      circle at 30% 20%,
+      rgba(199, 179, 148, 0.22),
+      transparent 55%
+    );
+  }
 }
 
-/* Elegant loader / ambient keyframes */
 @keyframes pulse-line {
   0% {
     transform: scaleX(0);
@@ -118,7 +137,16 @@
   }
 }
 
-/* Respect reduced motion at the CSS level */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

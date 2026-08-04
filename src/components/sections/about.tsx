@@ -1,125 +1,128 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { SectionHeader } from "@/components/ui/section-header";
 import { Reveal } from "@/components/ui/reveal";
+import { CornerFrame, Coords, Measure, SectionIndex } from "@/components/ui/arch";
+import { site } from "@/lib/site";
 
-const experience = [
+const pillars = [
   {
-    role: "Diseñadora senior",
-    place: "Estudio Behía · Buenos Aires",
-    years: "2021 - hoy",
+    title: "Filosofía",
+    detail:
+      "Cada espacio es una respuesta a un modo de habitar, no una composición decorativa. Primero la vida que va a pasar ahí.",
   },
   {
-    role: "Diseñadora de marca",
-    place: "Agencia Ribera · Buenos Aires",
-    years: "2017 - 2021",
+    title: "Materiales",
+    detail:
+      "Madera, piedra, lino y metal: texturas honestas que envejecen con dignidad y se tocan sin intermediarios.",
   },
   {
-    role: "Diseñadora gráfica",
-    place: "Free-lance",
-    years: "2015 - 2017",
+    title: "Luz natural",
+    detail:
+      "La luz es el primer material. Todo ambiente se ordena según cómo la recibe a lo largo del día.",
   },
-];
-
-const tools = [
-  "Illustrator",
-  "Photoshop",
-  "InDesign",
-  "Figma",
-  "After Effects",
-  "Procreate",
+  {
+    title: "Funcionalidad",
+    detail:
+      "Belleza y uso no compiten. La distribución se piensa desde la vida real: la cocina, el guardado, la circulación.",
+  },
+  {
+    title: "Estética",
+    detail:
+      "Lo atemporal por encima de lo novedoso. La calma como lenguaje, el detalle como firma.",
+  },
+  {
+    title: "Personalización",
+    detail:
+      "Cada casa se diseña a la medida de quienes la habitan. No hay recetas, hay personas.",
+  },
 ];
 
 export function About() {
   return (
-    <section id="estudio" className="scroll-mt-24 border-t border-line py-24 lg:py-40">
+    <section id="estudio" className="scroll-mt-24 overflow-hidden py-24 lg:py-40">
       <Container>
-        <SectionHeader meta="estudio" title="Sobre el oficio" className="max-w-3xl" />
+        <div className="relative">
+          <SectionIndex className="pointer-events-none absolute -right-6 -top-16 hidden lg:block">
+            01
+          </SectionIndex>
 
-        <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-10">
-          <Reveal
-            variant="fade"
-            className="lg:col-span-5"
-          >
-            <div className="sticky top-28 overflow-hidden rounded-2xl border border-line lg:aspect-[4/5]">
-              <Image
-                src="https://picsum.photos/seed/retrato-adolfina/1000/1250"
-                alt="Retrato de Adolfina Lorenzetti en su escritorio de trabajo"
-                fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover saturate-[0.9] contrast-[1.02]"
-              />
-            </div>
+          <Reveal variant="fade">
+            <p className="u-uppercase-mono text-accent">El estudio</p>
           </Reveal>
 
-          <div className="flex flex-col gap-10 lg:col-span-7 lg:pt-4">
-            <Reveal>
-              <blockquote className="text-balance font-serif text-2xl italic leading-snug text-ink sm:text-3xl">
-                «Creo que el buen diseño no grita. Ordena, acompaña y deja
-                espacio para que las ideas respiren.»
-              </blockquote>
-            </Reveal>
+          <div className="mt-14 grid gap-16 lg:grid-cols-12 lg:gap-12">
+            <div className="flex flex-col gap-10 lg:col-span-7">
+              <Reveal>
+                <blockquote className="max-w-3xl text-balance font-serif text-3xl font-light italic leading-[1.2] text-ink sm:text-4xl lg:text-[2.75rem]">
+                  «El buen interiorismo no se ve. Se habita.»
+                </blockquote>
+              </Reveal>
 
-            <Reveal delay={0.05}>
-              <div className="space-y-5 text-pretty leading-relaxed text-muted sm:text-base">
-                <p>
-                  Soy Adolfina, diseñadora gráfica con más de diez años de
-                  experiencia trabajando con marcas, editoriales y estudios de
-                  la región. Mi foco está en la identidad visual y el diseño
-                  editorial, los dos campos donde mejor se nota que detrás hay
-                  una persona pensando.
-                </p>
-                <p>
-                  Cada proyecto lo abordo como un intercambio: escuchar primero,
-                  entender el contexto y luego construir un sistema visual que
-                  le sea útil a quien lo usa. No me interesa lo que queda bien
-                  en un feed, sino lo que funciona sobre la mesa, en la imprenta
-                  y en la calle.
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div>
-                <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                  Trayectoria
-                </h3>
-                <ul className="mt-5">
-                  {experience.map((item) => (
-                    <li
-                      key={item.role}
-                      className="flex flex-col gap-1 border-t border-line py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                    >
-                      <div>
-                        <p className="font-medium text-ink">{item.role}</p>
-                        <p className="text-sm text-muted">{item.place}</p>
-                      </div>
-                      <span className="whitespace-nowrap font-mono text-xs text-faint">
-                        {item.years}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.15}>
-              <div>
-                <h3 className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                  Herramientas
-                </h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="rounded-full border border-line bg-surface px-4 py-1.5 font-mono text-xs text-muted"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+              <Reveal delay={0.05}>
+                <div className="max-w-xl space-y-5 text-pretty leading-relaxed text-muted">
+                  <p>
+                    Soy Adolfina Lorenzetti, interior designer con más de diez
+                    años de trabajo en proyectos residenciales y comerciales en
+                    Argentina. Mi estudio se dedica a transformar espacios en
+                    hogares: lugares donde la luz, el material y la función se
+                    ordenan al servicio de la vida diaria.
+                  </p>
+                  <p>
+                    Trabajo cada proyecto desde la primera entrevista hasta la
+                    última lámpara. La mesa de trabajo siempre incluye planos,
+                    muestras reales de materiales y una conversación larga
+                    sobre cómo se vive en la casa.
+                  </p>
                 </div>
+              </Reveal>
+
+              <Reveal delay={0.1}>
+                <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+                  <Coords value={site.coordinates} />
+                  <Measure label="Escala 1:100" />
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
+                    Proyectos · {site.location}
+                  </span>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal variant="fade" className="lg:col-span-5">
+              <div className="relative lg:sticky lg:top-28">
+                <div className="relative overflow-hidden rounded-[2px]">
+                  <Image
+                    src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1000&q=80"
+                    alt="Adolfina Lorenzetti trabajando en su estudio de interiorismo"
+                    width={1000}
+                    height={1250}
+                    sizes="(min-width: 1024px) 40vw, 90vw"
+                    className="aspect-[4/5] w-full object-cover"
+                  />
+                  <CornerFrame />
+                </div>
+                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
+                  Fig. 01 — El estudio, Buenos Aires
+                </p>
               </div>
             </Reveal>
+          </div>
+
+          <div className="mt-24 grid gap-x-10 gap-y-2 border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+            {pillars.map((pillar, index) => (
+              <Reveal key={pillar.title} variant="fade-up" delay={(index % 3) * 0.07}>
+                <div className="border-b border-line py-8 lg:py-10">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-3 font-serif text-2xl font-medium tracking-tight text-ink">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-3 max-w-[34ch] text-sm leading-relaxed text-muted">
+                    {pillar.detail}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </Container>

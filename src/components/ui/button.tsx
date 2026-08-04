@@ -4,20 +4,30 @@ import Link from "next/link";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "accent";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "ghost"
+  | "ghostLight"
+  | "paper"
+  | "accent"
+  | "link";
 type Size = "sm" | "md" | "lg";
 
 const base =
   "group/btn inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-ink text-paper hover:bg-[#2c2a26] hover:shadow-[0_10px_30px_-12px_rgba(28,27,24,0.5)]",
+  primary: "bg-ink text-paper hover:bg-ink-strong",
+  paper:
+    "bg-paper text-ink hover:bg-white shadow-[0_8px_30px_-12px_rgba(38,35,29,0.5)]",
   secondary:
-    "border border-line-strong bg-surface text-ink hover:border-ink/40 hover:bg-subtle",
+    "border border-line-strong bg-surface font-medium text-ink hover:border-ink/40 hover:bg-subtle",
   ghost: "text-ink hover:bg-subtle",
-  accent:
-    "bg-accent text-white hover:bg-accent-deep hover:shadow-[0_10px_30px_-12px_rgba(216,80,47,0.6)]",
+  ghostLight:
+    "border border-paper/40 text-paper backdrop-blur-sm hover:border-paper/70 hover:bg-paper/10",
+  accent: "bg-accent text-paper hover:bg-accent-deep",
+  link: "px-0 text-ink hover:text-accent-deep",
 };
 
 const sizes: Record<Size, string> = {
@@ -38,6 +48,7 @@ interface ButtonProps {
   ariaLabel?: string;
   disabled?: boolean;
   download?: boolean;
+  arrowClass?: string;
 }
 
 export function Button({
@@ -52,8 +63,20 @@ export function Button({
   ariaLabel,
   disabled,
   download,
+  arrowClass,
 }: ButtonProps) {
   const classes = cn(base, variants[variant], sizes[size], className);
+
+  const arrow = (
+    <ArrowUpRight
+      weight="bold"
+      aria-hidden="true"
+      className={cn(
+        "h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5",
+        arrowClass,
+      )}
+    />
+  );
 
   if (href) {
     const external = /^https?:\/\//.test(href);
@@ -68,12 +91,7 @@ export function Button({
           className={classes}
         >
           {children}
-          {withArrow && (
-            <ArrowUpRight
-              weight="bold"
-              className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-            />
-          )}
+          {withArrow && arrow}
         </a>
       );
     }
@@ -81,24 +99,14 @@ export function Button({
       return (
         <a href={href} aria-label={ariaLabel} className={classes}>
           {children}
-          {withArrow && (
-            <ArrowUpRight
-              weight="bold"
-              className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-            />
-          )}
+          {withArrow && arrow}
         </a>
       );
     }
     return (
       <Link href={href} aria-label={ariaLabel} className={classes} download={download}>
         {children}
-        {withArrow && (
-          <ArrowUpRight
-            weight="bold"
-            className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-          />
-        )}
+        {withArrow && arrow}
       </Link>
     );
   }
@@ -112,12 +120,7 @@ export function Button({
       className={cn(classes, disabled && "cursor-not-allowed opacity-50")}
     >
       {children}
-      {withArrow && (
-        <ArrowUpRight
-          weight="bold"
-          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-        />
-      )}
+      {withArrow && arrow}
     </button>
   );
 }
