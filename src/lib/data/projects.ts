@@ -1,6 +1,6 @@
 import type { Project } from "@/types/project";
 
-const img = (id: string, w: number) =>
+const img = (id: string, w: number, _h?: number) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const projects: Project[] = [
