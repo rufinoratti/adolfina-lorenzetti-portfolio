@@ -19,8 +19,8 @@ export const site = {
   },
   cv: "/cv-adolfina-lorenzetti.pdf",
   nav: [
+    { label: "Sobre mí", href: "/#sobre-mi" },
     { label: "Proyectos", href: "/portfolio" },
-    { label: "Estudio", href: "/#estudio" },
     { label: "Servicios", href: "/#servicios" },
     { label: "Contacto", href: "/#contacto" },
   ],

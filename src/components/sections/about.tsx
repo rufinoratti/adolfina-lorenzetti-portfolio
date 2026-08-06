@@ -39,7 +39,7 @@ const pillars = [
 
 export function About() {
   return (
-    <section id="estudio" className="scroll-mt-24 overflow-hidden py-24 lg:py-40">
+    <section id="sobre-mi" className="scroll-mt-24 overflow-hidden py-24 lg:py-40">
       <Container>
         <div className="relative">
           <SectionIndex className="pointer-events-none absolute -right-6 -top-16 hidden lg:block">

@@ -16,7 +16,7 @@ export function Work() {
       <Container>
         <div className="relative">
           <SectionIndex className="pointer-events-none absolute -right-6 -top-20 hidden lg:block">
-            03
+            02
           </SectionIndex>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">

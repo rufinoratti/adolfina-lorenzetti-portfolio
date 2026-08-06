@@ -70,7 +70,7 @@ export function Services() {
       <Container>
         <div className="relative">
           <SectionIndex className="pointer-events-none absolute -left-6 -top-20 hidden opacity-60 lg:block">
-            02
+            03
           </SectionIndex>
 
           <Reveal variant="fade">
