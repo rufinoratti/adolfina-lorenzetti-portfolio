@@ -21,18 +21,18 @@ export const projects: Project[] = [
     role: "Diseño y ejecución",
     gallery: [
       {
+        src: "/proyectos/proyecto-p/03.jpg",
+        alt: "Cocina y textiles del Proyecto P",
+        seed: "proyecto-p-1",
+      },
+      {
         src: "/proyectos/proyecto-p/01.jpg",
         alt: "Ambiente principal del Proyecto P",
-        seed: "proyecto-p-1",
+        seed: "proyecto-p-2",
       },
       {
         src: "/proyectos/proyecto-p/02.jpg",
         alt: "Detalle de mobiliario a medida del Proyecto P",
-        seed: "proyecto-p-2",
-      },
-      {
-        src: "/proyectos/proyecto-p/03.jpg",
-        alt: "Cocina y textiles del Proyecto P",
         seed: "proyecto-p-3",
       },
     ],

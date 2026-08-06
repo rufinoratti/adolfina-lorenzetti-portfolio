@@ -15,7 +15,7 @@ const pillars = [
     number: "02",
     title: "Funcionalidad",
     detail:
-      "Belleza y uso no compiten. La distribución se piensa desde la vida real: la cocina, el guardado, la circulación.",
+      "Belleza y uso no compiten. La distribución se piensa desde la vida real.",
   },
   {
     number: "03",
