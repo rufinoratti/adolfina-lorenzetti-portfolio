@@ -9,7 +9,6 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { ArchTag, Coords } from "@/components/ui/arch";
 import { site } from "@/lib/site";
 
 const IMG = "/hero.jpg";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { CornerFrame, Coords, Measure, SectionIndex } from "@/components/ui/arch";
+import { CornerFrame, SectionIndex } from "@/components/ui/arch";
 import { site } from "@/lib/site";
 
 const pillars = [
@@ -47,7 +47,7 @@ export function About() {
           </SectionIndex>
 
           <Reveal variant="fade">
-            <p className="u-uppercase-mono text-accent">El estudio</p>
+            <p className="u-uppercase-mono text-accent">Sobre mí</p>
           </Reveal>
 
           <div className="mt-14 grid gap-16 lg:grid-cols-12 lg:gap-12">
@@ -61,25 +61,18 @@ export function About() {
               <Reveal delay={0.05}>
                 <div className="max-w-xl space-y-5 text-pretty leading-relaxed text-muted">
                   <p>
-                    Soy Adolfina Lorenzetti, diseñadora de interiores con más de diez
-                    años de trabajo en proyectos residenciales y comerciales en
-                    Argentina. Mi estudio se dedica a transformar espacios en
-                    hogares: lugares donde la luz, el material y la función se
-                    ordenan al servicio de la vida diaria.
-                  </p>
-                  <p>
-                    Trabajo cada proyecto desde la primera entrevista hasta la
-                    última lámpara. La mesa de trabajo siempre incluye planos,
-                    muestras reales de materiales y una conversación larga
-                    sobre cómo se vive en la casa.
+                    Soy diseñadora de interiores especializada en transformar ideas
+                    en proyectos claros, funcionales y visualmente atractivos.
+                    Acompaño cada etapa del proceso, desde el diseño y el desarrollo
+                    de mobiliario a medida hasta la visualización 3D y la
+                    documentación para presentar cada propuesta de forma
+                    profesional.
                   </p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.1}>
                 <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
-                  <Coords value={site.coordinates} />
-                  <Measure label="Escala 1:100" />
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
                     Proyectos · {site.location}
                   </span>
@@ -89,19 +82,19 @@ export function About() {
 
             <Reveal variant="fade" className="lg:col-span-5">
               <div className="relative lg:sticky lg:top-28">
-                <div className="relative overflow-hidden rounded-[2px]">
+                <div className="relative max-w-sm overflow-hidden rounded-[2px]">
                   <Image
-                    src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1000&q=80"
-                    alt="Adolfina Lorenzetti trabajando en su estudio de interiorismo"
-                    width={1000}
-                    height={1250}
+                    src="/foto-adolfina.jpg"
+                    alt="Adolfina Lorenzetti, diseñadora de interiores"
+                    width={1200}
+                    height={1600}
                     sizes="(min-width: 1024px) 40vw, 90vw"
                     className="aspect-[4/5] w-full object-cover"
                   />
                   <CornerFrame />
                 </div>
                 <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-faint">
-                  Fig. 01 — El estudio, Buenos Aires
+                  Adolfina Lorenzetti
                 </p>
               </div>
             </Reveal>
