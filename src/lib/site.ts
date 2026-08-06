@@ -13,7 +13,7 @@ export const site = {
   description:
     "Estudio de interiorismo a cargo de Adolfina Lorenzetti. Diseño residencial y comercial, remodelaciones y espacios corporativos: ambientes que equilibran luz, materialidad y funcionalidad.",
   social: {
-    instagram: "https://instagram.com/adolfinalorenzetti",
+    instagram: "https://instagram.com/designadolfina",
     pinterest: "https://pinterest.com/adolfinalorenzetti",
     linkedin: "https://linkedin.com/in/adolfinalorenzetti",
   },

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ArchTag, Coords } from "@/components/ui/arch";
 import { site } from "@/lib/site";
 
-const IMG = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80";
+const IMG = "/hero.jpg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -75,8 +75,6 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-x-6 gap-y-2 text-paper/80"
           >
-            <ArchTag className="text-paper/80">Residential</ArchTag>
-            <Coords value={site.coordinates} className="text-paper/50" />
           </motion.div>
 
           <motion.h1
@@ -95,8 +93,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-xl text-balance text-pretty text-lg leading-relaxed text-paper/85"
           >
-            {site.tagline} Interiores que equilibran luz, materialidad y
-            funcionalidad para cada forma de habitar.
+            Acompaño proyectos desde la idea inicial hasta la ejecución final, combinando diseño, documentación y visualización.
           </motion.p>
 
           <motion.div
@@ -117,7 +114,14 @@ export function Hero() {
         <div className="hidden items-center justify-between border-t border-paper/20 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/55 md:flex">
           <span>{site.location}</span>
           <span>Diseñadora de interiores</span>
-          <span>{site.social.instagram.replace("https://instagram.com/", "@")}</span>
+          <a
+            href={site.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-paper"
+          >
+            {site.social.instagram.replace("https://instagram.com/", "@")}
+          </a>
         </div>
       </motion.div>
     </section>
