@@ -4,9 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/portfolio/project-card";
 import { SectionIndex } from "@/components/ui/arch";
 import { getProjects } from "@/lib/data/projects";
-import { cn } from "@/lib/utils";
 
-const featuredSlugs = ["casa-vento", "piso-bruma", "cafe-terra-fina", "hall-torre-oceanica"];
+const featuredSlugs = [
+  "casa-vento",
+  "piso-bruma",
+  "cafe-terra-fina",
+  "hall-torre-oceanica",
+];
 
 export function Work() {
   const featured = getProjects(featuredSlugs);
@@ -36,24 +40,16 @@ export function Work() {
               </Button>
             </Reveal>
           </div>
-
-          <div className="mt-16 grid items-start gap-x-8 gap-y-16 md:grid-cols-2 lg:gap-y-20">
-            {featured.map((project, index) => (
-              <Reveal
-                key={project.slug}
-                variant="fade-up"
-                delay={(index % 2) * 0.12}
-                className={cn(index % 2 === 0 && "md:mt-20")}
-              >
-                <ProjectCard
-                  project={project}
-                  ratio={index % 2 === 0 ? "portrait" : "landscape"}
-                />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </Container>
+
+      <div className="mx-auto mt-16 flex w-[80vw] max-w-[1300px] flex-col gap-14">
+        {featured.map((project) => (
+          <Reveal key={project.slug} variant="fade-up" delay={0.05}>
+            <ProjectCard project={project} />
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }

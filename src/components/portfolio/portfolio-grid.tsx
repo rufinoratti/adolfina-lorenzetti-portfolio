@@ -54,10 +54,10 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
 
       <motion.div
         layout={!reduce}
-        className="mt-14 grid items-start gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-y-20"
+        className="mt-14 grid items-start gap-10 md:grid-cols-2 lg:gap-14"
       >
         <AnimatePresence mode="popLayout">
-          {visible.map((project, index) => (
+          {visible.map((project) => (
             <motion.div
               layout={!reduce}
               key={project.slug}
@@ -65,16 +65,8 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className={cn(
-                index % 2 === 0
-                  ? "md:col-span-1 lg:col-span-7"
-                  : "md:col-span-1 lg:col-span-5 lg:mt-20",
-              )}
             >
-              <ProjectCard
-                project={project}
-                ratio={index % 2 === 0 ? "landscape" : "portrait"}
-              />
+              <ProjectCard project={project} />
             </motion.div>
           ))}
         </AnimatePresence>
