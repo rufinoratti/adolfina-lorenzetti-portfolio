@@ -7,9 +7,18 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      new URL("https://images.unsplash.com/**"),
-      new URL("https://picsum.photos/**"),
-      new URL("https://fastly.picsum.photos/**"),
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+      {
+        protocol: "https",
+        hostname: "fastly.picsum.photos",
+      },
     ],
   },
 };

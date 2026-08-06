@@ -116,7 +116,7 @@ export function Hero() {
 
         <div className="hidden items-center justify-between border-t border-paper/20 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/55 md:flex">
           <span>{site.location}</span>
-          <span>Interior Designer</span>
+          <span>Diseñadora de interiores</span>
           <span>{site.social.instagram.replace("https://instagram.com/", "@")}</span>
         </div>
       </motion.div>

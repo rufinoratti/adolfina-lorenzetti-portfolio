@@ -61,7 +61,7 @@ export function About() {
               <Reveal delay={0.05}>
                 <div className="max-w-xl space-y-5 text-pretty leading-relaxed text-muted">
                   <p>
-                    Soy Adolfina Lorenzetti, interior designer con más de diez
+                    Soy Adolfina Lorenzetti, diseñadora de interiores con más de diez
                     años de trabajo en proyectos residenciales y comerciales en
                     Argentina. Mi estudio se dedica a transformar espacios en
                     hogares: lugares donde la luz, el material y la función se

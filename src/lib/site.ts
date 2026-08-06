@@ -1,7 +1,7 @@
 export const site = {
   name: "Adolfina Lorenzetti",
   shortName: "Adolfina",
-  role: "Interior Designer",
+  role: "Diseñadora de interiores",
   tagline: "Espacios pensados para ser habitados.",
   initials: "AL",
   url: "https://adolfinalorenzetti.com",

@@ -91,7 +91,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
-  jobTitle: "Interior Designer",
+  jobTitle: "Diseñadora de interiores",
   description: site.description,
   email: site.email,
   url: site.url,
