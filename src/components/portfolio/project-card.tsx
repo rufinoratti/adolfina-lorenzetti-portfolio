@@ -18,6 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
           alt={`${project.title} — ${project.tagline}`}
           fill
           sizes="(min-width: 1024px) 70vw, 90vw"
+          style={{ objectPosition: project.coverFocus }}
           className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />

@@ -6,9 +6,9 @@ import { SectionIndex } from "@/components/ui/arch";
 import { getProjects } from "@/lib/data/projects";
 
 const featuredSlugs = [
-  "casa-vento",
-  "piso-bruma",
-  "cafe-terra-fina",
+  "proyecto-p",
+  "proyecto-c",
+  "linke-legal-group",
   "hall-torre-oceanica",
 ];
 
