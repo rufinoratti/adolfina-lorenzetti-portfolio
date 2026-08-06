@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Icon, type IconName } from "@/components/ui/dynamic-icon";
-import { Coords } from "@/components/ui/arch";
 import { site } from "@/lib/site";
 
 const socials: { label: string; href: string; icon: IconName }[] = [
   { label: "Instagram", href: site.social.instagram, icon: "InstagramLogo" },
-  { label: "Pinterest", href: site.social.pinterest, icon: "PinterestLogo" },
   { label: "LinkedIn", href: site.social.linkedin, icon: "LinkedinLogo" },
 ];
 
@@ -73,7 +71,6 @@ export function Footer() {
               © {year} {site.name}. Todos los derechos reservados.
             </p>
             <div className="flex items-center gap-6">
-              <Coords value={site.coordinates} />
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-faint">
                 {site.role}
               </p>

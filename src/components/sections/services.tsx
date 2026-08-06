@@ -27,33 +27,15 @@ const services: {
     icon: "Hammer",
   },
   {
-    title: "Espacios corporativos",
-    description:
-      "Oficinas y halls que comunican la marca y cuidan a quienes los usan.",
-    icon: "Building",
-  },
-  {
-    title: "Diseño de cocinas",
-    description:
-      "Cocinas funcionales y cálidas, diseñadas alrededor de la manera de cocinar.",
-    icon: "Knife",
-  },
-  {
-    title: "Diseño de baños",
-    description:
-      "Baños que se sienten como un lugar de descanso, no como un trámite.",
-    icon: "Bathtub",
-  },
-  {
     title: "Asesoramiento decorativo",
     description:
-      "Acompañamiento puntual: color, texturas, distribución y obras de arte.",
+      "Te acompaño en la selección de texturas, colores y objetos decorativos para crear espacios armónicos, con personalidad y un carácter único que refleje tu estilo.",
     icon: "Lightbulb",
   },
   {
-    title: "Selección de mobiliario",
+    title: "Diseño de mobiliario a medida",
     description:
-      "Piezas nuevas y vintage seleccionadas para componer la casa de cada uno.",
+      "Diseño de mobiliario personalizado acompañado de planos técnicos y documentación detallada para garantizar una correcta fabricación, optimizando la funcionalidad, la estética y el aprovechamiento de cada espacio.",
     icon: "Chair",
   },
   {
@@ -78,7 +60,7 @@ export function Services() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-6 max-w-3xl text-balance font-serif text-4xl font-light leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Nueve maneras de cuidar tu espacio
+              Seis maneras de cuidar tu espacio
             </h2>
           </Reveal>
 

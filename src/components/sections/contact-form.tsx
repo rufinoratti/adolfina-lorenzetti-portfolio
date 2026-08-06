@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Check, PaperPlaneTilt, CircleNotch } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
+import { site } from "@/lib/site";
 
 const initial = { name: "", email: "", project: "", message: "" };
 
@@ -41,8 +42,22 @@ export function ContactForm() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
+    const subject = `Consulta web — ${values.name}`;
+    const body = [
+      `Nombre: ${values.name}`,
+      `Email: ${values.email}`,
+      values.project ? `Tipo de proyecto: ${values.project}` : null,
+      "",
+      values.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
     setStatus("sending");
-    window.setTimeout(() => setStatus("sent"), 1400);
+    window.setTimeout(() => {
+      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus("sent");
+    }, 400);
   }
 
   return (
@@ -64,7 +79,8 @@ export function ContactForm() {
                 Gracias, {values.name.split(" ")[0]}.
               </h3>
               <p className="mx-auto mt-3 max-w-sm text-pretty text-sm leading-relaxed text-muted">
-                Recibí tu mensaje. Te escribo a {values.email} en las próximas
+                Se abrió tu programa de correo con el mensaje listo. Solo
+                tocalo a enviar y te escribo a {values.email} en las próximas
                 horas hábiles para seguir conversando sobre tu espacio.
               </p>
             </div>

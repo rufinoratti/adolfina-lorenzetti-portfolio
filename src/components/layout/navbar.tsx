@@ -141,7 +141,6 @@ export function Navbar() {
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {[
                   ["Instagram", site.social.instagram],
-                  ["Pinterest", site.social.pinterest],
                   ["LinkedIn", site.social.linkedin],
                 ].map(([label, href]) => (
                   <a

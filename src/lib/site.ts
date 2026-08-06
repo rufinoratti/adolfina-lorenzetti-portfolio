@@ -4,18 +4,15 @@ export const site = {
   role: "Diseñadora de interiores",
   tagline: "Espacios pensados para ser habitados.",
   initials: "AL",
-  url: "https://adolfinalorenzetti.com",
-  email: "hola@adolfinalorenzetti.com",
+  url: "https://adolfina-lorenzetti-portfolio.vercel.app/",
+  email: "designadolfina@gmail.com",
   location: "Buenos Aires, Argentina",
-  address: "Bosque Alegre 452 · Palermo Soho",
-  coordinates: "34.5721° S, 58.4258° O",
-  phone: "+54 11 5555 0180",
+  phone: "+54 9 2227440244",
   description:
     "Estudio de interiorismo a cargo de Adolfina Lorenzetti. Diseño residencial y comercial, remodelaciones y espacios corporativos: ambientes que equilibran luz, materialidad y funcionalidad.",
   social: {
     instagram: "https://instagram.com/designadolfina",
-    pinterest: "https://pinterest.com/adolfinalorenzetti",
-    linkedin: "https://linkedin.com/in/adolfinalorenzetti",
+    linkedin: "https://www.linkedin.com/in/adolfinalorenzetti/",
   },
   cv: "/cv-adolfina-lorenzetti.pdf",
   nav: [

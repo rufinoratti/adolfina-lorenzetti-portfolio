@@ -100,11 +100,7 @@ const personJsonLd = {
     addressLocality: "Buenos Aires",
     addressCountry: "AR",
   },
-  sameAs: [
-    site.social.instagram,
-    site.social.pinterest,
-    site.social.linkedin,
-  ],
+  sameAs: [site.social.instagram, site.social.linkedin],
   knowsAbout: [
     "Diseño residencial",
     "Diseño comercial",

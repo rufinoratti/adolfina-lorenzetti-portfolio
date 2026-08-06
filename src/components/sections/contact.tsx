@@ -2,13 +2,12 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Icon, type IconName } from "@/components/ui/dynamic-icon";
-import { Coords, CornerFrame, SectionIndex } from "@/components/ui/arch";
+import { CornerFrame, SectionIndex } from "@/components/ui/arch";
 import { ContactForm } from "@/components/sections/contact-form";
 import { site } from "@/lib/site";
 
 const socials: { label: string; href: string; icon: IconName }[] = [
   { label: "Instagram", href: site.social.instagram, icon: "InstagramLogo" },
-  { label: "Pinterest", href: site.social.pinterest, icon: "PinterestLogo" },
   { label: "LinkedIn", href: site.social.linkedin, icon: "LinkedinLogo" },
 ];
 
@@ -36,7 +35,7 @@ export function Contact() {
                 <div className="relative">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[2px]">
                     <Image
-                      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80"
+                      src="/contacto.jpg"
                       alt="Ambiente del estudio de interiorismo de Adolfina Lorenzetti"
                       fill
                       sizes="(min-width: 1024px) 40vw, 92vw"
@@ -50,27 +49,15 @@ export function Contact() {
                 </div>
               </Reveal>
 
-              {/* Mapa estilizado */}
+              {/* Contacto directo */}
               <Reveal delay={0.08}>
                 <div className="relative overflow-hidden rounded-[2px] border border-line bg-surface">
                   <div className="u-tech-grid absolute inset-0" />
                   <div className="relative flex flex-col gap-4 p-7">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <p className="font-serif text-xl font-medium text-ink">
-                          El estudio
-                        </p>
-                        <p className="mt-1 text-sm text-muted">{site.address}</p>
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-accent"
-                      >
-                        <Icon name="MapPin" size={17} weight="light" />
-                      </span>
-                    </div>
-                    <Coords value={site.coordinates} />
-                    <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+                    <p className="font-serif text-xl font-medium text-ink">
+                      Contacto directo
+                    </p>
+                    <div className="flex flex-wrap gap-x-6 gap-y-2">
                       <a
                         href={`mailto:${site.email}`}
                         className="group inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-accent-deep"
