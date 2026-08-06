@@ -6,34 +6,26 @@ import { site } from "@/lib/site";
 
 const pillars = [
   {
+    number: "01",
     title: "Filosofía",
     detail:
       "Cada espacio es una respuesta a un modo de habitar, no una composición decorativa. Primero la vida que va a pasar ahí.",
   },
   {
-    title: "Materiales",
-    detail:
-      "Madera, piedra, lino y metal: texturas honestas que envejecen con dignidad y se tocan sin intermediarios.",
-  },
-  {
-    title: "Luz natural",
-    detail:
-      "La luz es el primer material. Todo ambiente se ordena según cómo la recibe a lo largo del día.",
-  },
-  {
+    number: "02",
     title: "Funcionalidad",
     detail:
       "Belleza y uso no compiten. La distribución se piensa desde la vida real: la cocina, el guardado, la circulación.",
   },
   {
-    title: "Estética",
-    detail:
-      "Lo atemporal por encima de lo novedoso. La calma como lenguaje, el detalle como firma.",
-  },
-  {
+    number: "03",
     title: "Personalización",
-    detail:
-      "Cada casa se diseña a la medida de quienes la habitan. No hay recetas, hay personas.",
+    detail: (
+      <>
+        Cada casa se diseña a la medida de quienes la habitan.
+        <br />No hay recetas, hay personas.
+      </>
+    ),
   },
 ];
 
@@ -105,7 +97,7 @@ export function About() {
               <Reveal key={pillar.title} variant="fade-up" delay={(index % 3) * 0.07}>
                 <div className="border-b border-line py-8 lg:py-10">
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
-                    0{index + 1}
+                    {pillar.number}
                   </span>
                   <h3 className="mt-3 font-serif text-2xl font-medium tracking-tight text-ink">
                     {pillar.title}
