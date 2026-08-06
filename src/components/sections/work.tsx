@@ -9,7 +9,7 @@ const featuredSlugs = [
   "proyecto-p",
   "proyecto-c",
   "linke-legal-group",
-  "hall-torre-oceanica",
+  "proyecto-dc",
 ];
 
 export function Work() {
